@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Firma.PortalWWW</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Firma.PortalWWW.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light border-bottom box-shadow px-3">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand d-sm-block d-md-none" href="/pracownik">
+                    <img src="~/content/logo.svg" class="logo" alt="Logo">
+                </a>
+                <div class="navbar-collapse collapse d-md-flex justify-content-between w-100" id="navbarNav">
+                    <ul class="navbar-nav me-auto d-flex justify-content-evenly w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pracownik/aktualnosci">AKTUALNOŚCI</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pracownik/kalendarz">KALENDARZ</a>
+                        </li>
+                    </ul>
+                    <a class="navbar-brand d-none d-md-block mx-auto mx-md-0" href="/pracownik">
+                        <img src="~/content/logo.svg" class="logo-lg" alt="Logo">
+                    </a>
+                    <ul class="navbar-nav ms-auto d-flex justify-content-evenly w-100">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pracownik/delegacje">DELEGACJE</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/pracownik/dokumenty">DOKUMENTY</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <footer class="border-top text-muted">
+        <div class="container-fluid rusty-background p-5">
+            <div class="row">
+                <div class="col-12 col-lg-5 text-center mb-4">
+                    <img src="~/content/logo.svg" class="logo logoFooter mb-1" alt="Logo">
+                    <ul class="text-center">
+                        <li>
+                            <p class="mt-2 mb-0 fw-bold text-black">Zainteresowały cię nasze produkty?</p>
+                        </li>
+                        <li>
+                            <a role="button">Zamów z Glovo</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-lg-6">
+                    <div class="row g-0">
+                        <div class="col-4 d-flex justify-content-center">
+                            <ul>
+                                <li>
+                                    <p class="fw-bold text-black">Menu</p>
+                                </li>
+                                <li>
+                                    <a role="button">Strona główna</a>
+                                </li>
+                                <li>
+                                    <a role="button">Produkty</a>
+                                </li>
+                                <li>
+                                    <a role="button">Cukiernie</a>
+                                </li>
+                                <li>
+                                    <a role="button">Catering</a>
+                                </li>
+                                <li>
+                                    <a role="button">Kariera</a>
+                                </li>
+                                <li>
+                                    <a role="button">O nas</a>
+                                </li>
+                                <li>
+                                    <a role="button">Kontakt</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center">
+                            <ul>
+                                <li>
+                                    <p class="fw-bold text-black">Produkty</p>
+                                </li>
+                                <li>
+                                    <a role="button">Bezy</a>
+                                </li>
+                                <li>
+                                    <a role="button">Ciasta</a>
+                                </li>
+                                <li>
+                                    <a role="button">Ciastka</a>
+                                </li>
+                                <li>
+                                    <a role="button">Tarty</a>
+                                </li>
+                                <li>
+                                    <a role="button">Torty</a>
+                                </li>
+                                <li>
+                                    <a role="button">Wszystko</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-4 d-flex justify-content-center">
+                            <ul>
+                                <li>
+                                    <p class="fw-bold text-black">Informacje</p>
+                                </li>
+                                <li>
+                                    <a role="button">Polityka prywatności</a>
+                                </li>
+                                <li>
+                                    <a role="button">Składniki i alergeny</a>
+                                </li>
+                                <li>
+                                    <a role="button">Kontakt</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @*   <div class="container rusty-background p-5 fluid">
+            &copy; 2025 - Firma.PortalWWW - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div> *@
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
