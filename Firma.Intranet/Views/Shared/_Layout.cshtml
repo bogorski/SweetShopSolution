@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Firma.Intranet.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header>
         <nav class="navbar navbar-expand-md navbar-light border-bottom box-shadow px-3">
             <div class="container-fluid">
@@ -16,27 +16,27 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand d-sm-block d-md-none" href="/pracownik">
+                <a class="navbar-brand d-sm-block d-md-none" asp-area="" asp-cotroler="Home" asp-action="Index">
                     <img src="~/content/logo.svg" class="logo" alt="Logo">
                 </a>
                 <div class="navbar-collapse collapse d-md-flex justify-content-between w-100" id="navbarNav">
                     <ul class="navbar-nav me-auto d-flex justify-content-evenly w-100">
                         <li class="nav-item">
-                            <a class="nav-link" href="/pracownik/aktualnosci">PRZEPISY</a>
+                            <a class="nav-link" asp-area="" asp-cotroler="Home" asp-action="Sklep">SKLEP</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/pracownik/kalendarz">KATEGRIE</a>
+                            <a class="nav-link" asp-area="" asp-cotroler="Home" asp-action="Kategorie">KATEGORIE</a>
                         </li>
                     </ul>
-                    <a class="navbar-brand d-none d-md-block mx-auto mx-md-0" href="/pracownik">
+                    <a class="navbar-brand d-none d-md-block mx-auto mx-md-0" asp-area="" asp-cotroler="Home" asp-action="Index">
                         <img src="~/content/logo.svg" class="logo-lg" alt="Logo">
                     </a>
                     <ul class="navbar-nav ms-auto d-flex justify-content-evenly w-100">
                         <li class="nav-item">
-                            <a class="nav-link" href="/pracownik/delegacje">SKŁADNIK</a>
+                            <a class="nav-link" asp-area="" asp-cotroler="Home" asp-action="Cukiernie">CUKIERINIE</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/pracownik/dokumenty">POMOC</a>
+                            <a class="nav-link" asp-area="" asp-cotroler="Home" asp-action="Pomoc">POMOC</a>
                         </li>
                     </ul>
                 </div>
@@ -48,10 +48,10 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="border-top text-muted">
+    <footer class="mt-auto">
         <div class="container-fluid rusty-background p-5">
             <div class="row">
-                <div class="col-12 col-lg-6 text-center my-auto">
+                <div class="col-12 col-lg-5 text-center my-auto pb-5">
                     <img src="~/content/logo.svg" class="logoFooter" alt="Logo">
                 </div>
                 <div class="col-12 col-lg-6">

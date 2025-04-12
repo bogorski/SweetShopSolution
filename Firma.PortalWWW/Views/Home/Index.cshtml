@@ -2,29 +2,149 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <br>
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <br>
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <br>
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <br>  
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <br>
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <br>
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <br>
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <br>
+<div class="container">
+    <div class="row my-5">
+        <div id="carouselExample" class="carousel slide">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="row px-5">
+                        <div class="col-12 offset-lg-1 col-lg-5 text-center d-none d-md-block">
+                            <img src="~/content/lodowkomat.jpg" class="d-block w-100 heightCarouselImg" alt="First slide lodowkomat">
+                        </div>
+                        <div class="col-12 col-lg-5 pt-5 pt-lg-0">
+                            <h4 class="text-center">Torty dostępne 24/7!</h4>
+                            <h5 class="text-center">Zamów już dziś do Lodówkomatu InPostu!</h5>
+                            <p class="text-center">
+                                Jak to działa? Wystarczy odwiedzić naszą stronę internetową i wybrać swój ulubiony tort spośród naszej bogatej oferty, a następnie wybrać Lodówkomat InPost, do którego go dostarczymy. Nie musisz się martwić o godziny otwarcia - nasze torty są dostępne dla Ciebie 24/7!
+                            </p>
+                            <div class="text-center">
+                                <a class="btn btn-primary" role="button" asp-area="" asp-controller="Home" asp-action="Sklep">WYBIERZ I ZAMÓW TORT</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="row px-5">
+                        <div class="col-12 offset-lg-1 col-lg-5 text-center d-none d-md-block">
+                            <img src="~/content/new_shop.jpg" class="d-block w-100 heightCarouselImg" alt="Second slide new shop">
+                        </div>
+                        <div class="col-12 col-lg-5 pt-5 pt-lg-0">
+                            <h4 class="text-center">Już otwarte!</h4>
+                            <h5 class="text-center">Nowa cukiernia, nowe smaki, nowe doznania!</h5>
+                            <p class="text-center">
+                                Witajcie w naszej najnowszej cukierni, miejscu, które tętni życiem i aromatem świeżo pieczonych wypieków! Z ogromną radością ogłaszamy otwarcie naszej nowej przystani dla miłośników słodkości. Nasza cukiernia to nie tylko miejsce, gdzie można znaleźć najwyższej jakości wypieki.
+                            </p>
+                            <div class="text-center">
+                                <a class="btn btn-primary" role="button" asp-area="" asp-controller="Home" asp-action="Cukiernie">WYZNACZ TRASĘ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+    <div class="row misty-rose-background p-4">
+        <div class="container">
+            <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3 g-3">
+                <div class="col">
+                    <div class="card h-100">
+                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
+                            <div class="card text-center">
+                                <img src="~/content/bezy.png" alt="Bezy" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Bezy</h5>
+                                    <p class="card-text">Nasze bezowe wypieki to czysta harmonia smaku i delikatności. Każdy kęs naszych bezów to podróż w świat subtelnych aromatów i rozkosznych doznań. Przygotuj się na niebiańską przyjemność bez kompromisów!</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
+                            <div class="card text-center">
+                                <img src="~/content/ciasto.jpg" alt="Ciasta" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ciasta</h5>
+                                    <p class="card-text">Przygotowujemy ciasta na zamówienie, które idealnie sprawdzą się jako dodatek do kawy lub herbaty. Nie trać czasu na przygotowania - zamów ciasto w naszej cukierni z dowozem i zaskocz rodzinę i znajomych pysznym deserem!</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
+                            <div class="card text-center">
+                                <img src="~/content/ciastka.jpg" alt="Ciastka" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ciastka</h5>
+                                    <p class="card-text">Spraw swojemu podniebieniu niezapomniane doznania z naszymi kruchymi ciastkami! Nasze wypieki to nie tylko pyszne smaki, ale także przyjemność dla oczu. Zanurz się w świecie słodkich marzeń i odkryj magię każdego kęsa!</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
+                            <div class="card text-center">
+                                <img src="~/content/tarta.jpg" alt="Tarty" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Tarty</h5>
+                                    <p class="card-text">Nasze wyrafinowane tarty to harmonijne połączenie kruchego spodu z wyjątkowymi nadzieniami, które tworzą niezapomniane doznania smakowe, idealne na każdą okazję. Skosztuj i odkryj nieodzowną słodycz na Twoim stole!</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
+                            <div class="card text-center">
+                                <img src="~/content/tort.jpg" alt="Torty" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Torty</h5>
+                                    <p class="card-text">Nasze wyjątkowe torty to kulminacja mistrzowskiej cukierniczej sztuki, łącząca smak, wygląd i wyjątkowy charakter w jednym wspaniałym wypieku. Spróbuj naszych tortów i pozwól, aby słodycz i elegancja zagościły na Twoim stole!</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
+                            <div class="card text-center">
+                                <img src="~/content/wszystko.png" alt="Cały asortyment" class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cały asortyment</h5>
+                                    <p class="card-text">Nasz szeroki asortyment to prawdziwa uczta dla zmysłów, łącząca najlepsze receptury z najświeższymi składnikami i niezrównanym rzemiosłem. Od wyrafinowanych tortów po delikatne ciasta, które są gotowe, aby uczynić Twoje chwile wyjątkowymi.</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col-12 col-xl-6">
+            <img src="~/content/macarons.jpg" alt="Macarons" class="img-fluid ">
+        </div>
+        <div class="col-12 col-xl-6 mt-3 mt-xl-0">
+            <h4>Historia firmy</h4>
+            <h5>Tradycyjne receptury, naturalne składniki, niezapomniane smaki.</h5>
+            <p>"Sweet Shop" to rodzinnie prowadzona cukiernia, której początki sięgają lat dzieciństwa założyciela, Marka. Marek od najmłodszych lat fascynował się sztuką cukierniczą, inspirując się smakami i aromatami, które tworzył razem z matką w kuchni swojego domu.</p>
+            <p>Kiedy Marek dorósł, postanowił podzielić się swoją pasją i wyjątkowymi wypiekami z innymi. Wraz z żoną Ewą, która dzieliła jego zamiłowanie do cukiernictwa, otworzyli własny sklep ze słodyczami - "Sweet Shop".</p>
+            <p>Od samego początku "Sweet Shop" przyciągało uwagę mieszkańców swoim wyjątkowym urokiem i bogactwem smaków. Markowi i Ewie zależało na tworzeniu słodkości, które nie tylko smakują wyśmienicie, ale także wywołują uśmiech na twarzach klientów.</p>
+        </div>
+    </div>
 </div>

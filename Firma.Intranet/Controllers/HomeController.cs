@@ -17,6 +17,25 @@ namespace Firma.Intranet.Controllers
         {
             return View();
         }
+        public IActionResult Cukiernie()
+        {
+            return View();
+        }
+
+        public IActionResult Kategorie()
+        {
+            return View();
+        }
+
+        public IActionResult Sklep()
+        {
+            return View();
+        }
+
+        public IActionResult Pomoc()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

@@ -18,6 +18,26 @@ namespace Firma.PortalWWW.Controllers
             return View();
         }
 
+        public IActionResult Cukiernie()
+        {
+            return View();
+        }
+
+        public IActionResult Kategorie()
+        {
+            return View();
+        }
+
+        public IActionResult Sklep()
+        {
+            return View();
+        }
+
+        public IActionResult Kontakt()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
