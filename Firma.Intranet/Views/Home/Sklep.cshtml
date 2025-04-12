@@ -1,8 +1,176 @@
-﻿@{
-    ViewData["Title"] = "Sklep";
-}
+﻿<div class="container form-container p-5">
+    <h1 class="form-title">Dodaj nowe ciasto do oferty</h1>
 
-<h2>Sklep</h2>
-<div class="text-center">
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <form id="cakeForm">
+        <div class="form-section">
+            <h3 class="section-title">Podstawowe informacje</h3>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="cakeName" class="form-label required-field">Nazwa ciasta</label>
+                    <input type="text" class="form-control" id="cakeName" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="category" class="form-label required-field">Kategoria</label>
+                    <select class="form-select" id="category" required>
+                        <option value="" selected disabled>Wybierz kategorię</option>
+                        <option value="torty">Torty</option>
+                        <option value="ciasta">Ciasta</option>
+                        <option value="desery">Desery</option>
+                        <option value="drozdzowki">Drożdżówki</option>
+                        <option value="bezglutenowe">Bezglutenowe</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label required-field">Opis ciasta</label>
+                <textarea class="form-control" id="description" rows="3" required></textarea>
+            </div>
+        </div>
+        <div class="form-section">
+            <h3 class="section-title">Zdjęcie produktu</h3>
+
+            <div class="mb-3">
+                <label for="cakeImage" class="form-label required-field">Wybierz zdjęcie</label>
+                <input class="form-control" type="file" id="cakeImage" accept="image/*" required>
+                <small class="text-muted">Maksymalny rozmiar pliku: 5MB</small>
+                <img id="imagePreview" class="image-preview mt-2" style="display: none;">
+            </div>
+        </div>
+        <div class="form-section">
+            <h3 class="section-title">Składniki i alergeny</h3>
+
+            <div class="mb-3">
+                <label for="ingredients" class="form-label required-field">Składniki</label>
+                <textarea class="form-control" id="ingredients" rows="3" required></textarea>
+                <small class="text-muted">Wypisz składniki oddzielone przecinkami</small>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Alergeny</label>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gluten">
+                            <label class="form-check-label" for="gluten">Gluten</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="nuts">
+                            <label class="form-check-label" for="nuts">Orzechy</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="lactose">
+                            <label class="form-check-label" for="lactose">Laktoza</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="eggs">
+                            <label class="form-check-label" for="eggs">Jajka</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="soy">
+                            <label class="form-check-label" for="soy">Soja</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="otherAllergens">
+                            <label class="form-check-label" for="otherAllergens">Inne</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-section">
+            <h3 class="section-title">Cena i dostępność</h3>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label for="price" class="form-label required-field">Cena (zł)</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="price" min="0" step="0.01" required>
+                        <span class="input-group-text">zł</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="weight" class="form-label">Waga (g)</label>
+                    <div class="input-group">
+                        <input type="number" class="form-control" id="weight" min="0">
+                        <span class="input-group-text">g</span>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label for="pieces" class="form-label">Ilość kawałków</label>
+                    <input type="number" class="form-control" id="pieces" min="0">
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="availability" class="form-label required-field">Dostępność</label>
+                <select class="form-select" id="availability" required>
+                    <option value="available" selected>Dostępne</option>
+                    <option value="preorder">Na zamówienie</option>
+                    <option value="unavailable">Niedostępne</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="preparationTime" class="form-label">Czas przygotowania (dni)</label>
+                <input type="number" class="form-control" id="preparationTime" min="0" value="1">
+            </div>
+        </div>
+        <div class="form-section">
+            <h3 class="section-title">Dodatkowe informacje</h3>
+
+            <div class="mb-3">
+                <label for="specialFeatures" class="form-label">Specjalne cechy</label>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="vegan">
+                            <label class="form-check-label" for="vegan">Wegańskie</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="sugarFree">
+                            <label class="form-check-label" for="sugarFree">Bez cukru</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="organic">
+                            <label class="form-check-label" for="organic">Eko/organiczne</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="seasonal">
+                            <label class="form-check-label" for="seasonal">Sezonowe</label>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="bestSeller">
+                            <label class="form-check-label" for="bestSeller">Bestseller</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="newProduct">
+                            <label class="form-check-label" for="newProduct">Nowość</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="notes" class="form-label">Uwagi</label>
+                <textarea class="form-control" id="notes" rows="2"></textarea>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <button type="reset" class="btn btn-secondary me-md-2">Wyczyść formularz</button>
+            <button type="submit" class="btn btn-submit">Dodaj ciasto</button>
+        </div>
+    </form>
 </div>

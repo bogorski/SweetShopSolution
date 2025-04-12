@@ -3,7 +3,7 @@
 }
 
 <div class="container">
-    <div class="row my-5">
+    <div class="row my-5 py-5">
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -51,91 +51,64 @@
             </button>
         </div>
     </div>
-    <div class="row misty-rose-background p-4">
-        <div class="container">
-            <div class="row row-cols-2 row-cols-md-2 row-cols-lg-3 g-3">
-                <div class="col">
-                    <div class="card h-100">
-                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
-                            <div class="card text-center">
-                                <img src="~/content/bezy.png" alt="Bezy" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Bezy</h5>
-                                    <p class="card-text">Nasze bezowe wypieki to czysta harmonia smaku i delikatności. Każdy kęs naszych bezów to podróż w świat subtelnych aromatów i rozkosznych doznań. Przygotuj się na niebiańską przyjemność bez kompromisów!</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+  
+    <dic class="row my-5 py-5 bakery-rose-background">
+        <div class="col">
+            <h2 class="text-center mb-5">Dlaczego warto nas wybrać?</h2>
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="feature-icon text-primary">🎂</div>
+                    <h5>Ręcznie robione wypieki</h5>
+                    <p>Każdy produkt tworzony jest z sercem – jak w domu!</p>
                 </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
-                            <div class="card text-center">
-                                <img src="~/content/ciasto.jpg" alt="Ciasta" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ciasta</h5>
-                                    <p class="card-text">Przygotowujemy ciasta na zamówienie, które idealnie sprawdzą się jako dodatek do kawy lub herbaty. Nie trać czasu na przygotowania - zamów ciasto w naszej cukierni z dowozem i zaskocz rodzinę i znajomych pysznym deserem!</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <div class="col-md-4">
+                    <div class="feature-icon text-success">📦</div>
+                    <h5>Możliwość zamówień online</h5>
+                    <p>Wygodna platforma do zamówień przez internet.</p>
                 </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
-                            <div class="card text-center">
-                                <img src="~/content/ciastka.jpg" alt="Ciastka" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ciastka</h5>
-                                    <p class="card-text">Spraw swojemu podniebieniu niezapomniane doznania z naszymi kruchymi ciastkami! Nasze wypieki to nie tylko pyszne smaki, ale także przyjemność dla oczu. Zanurz się w świecie słodkich marzeń i odkryj magię każdego kęsa!</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <div class="col-md-4">
+                    <div class="feature-icon text-danger">⭐</div>
+                    <h5>Najwyższa jakość składników</h5>
+                    <p>Używamy tylko sprawdzonych i naturalnych produktów.</p>
                 </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
-                            <div class="card text-center">
-                                <img src="~/content/tarta.jpg" alt="Tarty" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Tarty</h5>
-                                    <p class="card-text">Nasze wyrafinowane tarty to harmonijne połączenie kruchego spodu z wyjątkowymi nadzieniami, które tworzą niezapomniane doznania smakowe, idealne na każdą okazję. Skosztuj i odkryj nieodzowną słodycz na Twoim stole!</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+            </div>
+        </div>
+    </dic>
+
+    <div class="row my-5 py-5" id="galeria">
+        <div class="container text-center">
+            <h2 class="mb-4">Galeria naszych wypieków</h2>
+            <div class="row g-4">
+                <div class="col-md-4 gallery-item">
+                    <img src="~/content/ciastka.jpg" alt="Ciastka" class="img-fluid">
                 </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
-                            <div class="card text-center">
-                                <img src="~/content/tort.jpg" alt="Torty" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Torty</h5>
-                                    <p class="card-text">Nasze wyjątkowe torty to kulminacja mistrzowskiej cukierniczej sztuki, łącząca smak, wygląd i wyjątkowy charakter w jednym wspaniałym wypieku. Spróbuj naszych tortów i pozwól, aby słodycz i elegancja zagościły na Twoim stole!</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="~/content/tort.jpg" alt="Tort" class="img-fluid">
                 </div>
-                <div class="col">
-                    <div class="card h-100">
-                        <a class="card-link" asp-area="" asp-controller="Home" asp-action="Sklep">
-                            <div class="card text-center">
-                                <img src="~/content/wszystko.png" alt="Cały asortyment" class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title">Cały asortyment</h5>
-                                    <p class="card-text">Nasz szeroki asortyment to prawdziwa uczta dla zmysłów, łącząca najlepsze receptury z najświeższymi składnikami i niezrównanym rzemiosłem. Od wyrafinowanych tortów po delikatne ciasta, które są gotowe, aby uczynić Twoje chwile wyjątkowymi.</p>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="~/content/bezy.png" alt="Bezy" class="img-fluid">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="~/content/ciastka.jpg" alt="Ciastka" class="img-fluid">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="~/content/bezy.png" alt="Bezy" class="img-fluid">
+                </div>
+                <div class="col-md-4 gallery-item">
+                    <img src="~/content/tort.jpg" alt="Tort" class="img-fluid">
                 </div>
             </div>
         </div>
     </div>
-    <div class="row mt-5">
+
+    <div class="row my-5 py-5 text-center bakery-rose-background">
+        <div class="col">
+        <h3 class="mb-3">Masz ochotę na coś słodkiego?</h3>
+            <a class="btn btn-lg" asp-area="" asp-controller="Home" asp-action="Kontakt">Skontaktuj się z nami</a>
+        </div>
+    </div>
+
+    <div class="row my-5 py-5">
         <div class="col-12 col-xl-6">
             <img src="~/content/macarons.jpg" alt="Macarons" class="img-fluid ">
         </div>

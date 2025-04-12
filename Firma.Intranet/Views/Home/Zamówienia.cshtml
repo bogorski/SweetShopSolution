@@ -1,0 +1,107 @@
+﻿<div class="container mt-3">
+    <div class="row">
+        <div class="col-12">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Wyszukaj zamówienia..." aria-label="Wyszukaj zamówienia">
+                <button class="btn btn-outline-secondary" type="button">Szukaj</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sortuj
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                        <li><a class="dropdown-item" href="#">Nr</a></li>
+                        <li><a class="dropdown-item" href="#">Od</a></li>
+                        <li><a class="dropdown-item" href="#">Temat</a></li>
+                        <li><a class="dropdown-item" href="#">Wartość</a></li>
+                        <li><a class="dropdown-item" href="#">Status</a></li>
+                        <li><a class="dropdown-item" href="#">Data złożenia</a></li>
+                        <li><a class="dropdown-item" href="#">Termin realizacji</a></li>
+                        <li><a class="dropdown-item" href="#">Właściciel</a></li>
+                        <li><a class="dropdown-item" href="#">Email</a></li>
+                        <li><a class="dropdown-item" href="#">Oferta</a></li>
+                        <li><a class="dropdown-item" href="#">Faktura</a></li>
+                    </ul>
+                </div>
+
+                <button type="button" class="btn btn-primary">Dodaj</button>
+                <button type="button" class="btn btn-primary">Edytuj</button>
+                <button type="button" class="btn btn-primary">Usuń</button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nr</th>
+                            <th>Od</th>
+                            <th>Temat</th>
+                            <th>Wartość</th>
+                            <th>Status</th>
+                            <th>Data złożenia</th>
+                            <th>Termin realizacji</th>
+                            <th>Właściciel</th>
+                            <th>Email</th>
+                            <th>Oferta</th>
+                            <th>Faktura</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="orderRow">
+                            <td>Z/001/2020</td>
+                            <td>Firma Jan Sp. z o.o.</td>
+                            <td>Lorem ipsum</td>
+                            <td>450.50 zł</td>
+                            <td>Zakończone</td>
+                            <td>15.03.2022</td>
+                            <td>30.03.2022</td>
+                            <td>Jan Kowalski</td>
+                            <td>jan.kowalski@gmail.com</td>
+                            <td>O/123</td>
+                            <td>FV/456</td>
+                        </tr>
+                        <tr class="orderRow">
+                            <td>Z/002/2021</td>
+                            <td>Firma Anna Sp. z o.o.</td>
+                            <td>dolor sit</td>
+                            <td>320.00 zł</td>
+                            <td>Anulowane</td>
+                            <td>10.05.2021</td>
+                            <td>25.05.2021</td>
+                            <td>Anna Nowak</td>
+                            <td>anna.nowak@gmail.com</td>
+                            <td>O/124</td>
+                            <td>FV/457</td>
+                        </tr>
+                        <tr class="selected-orderRow">
+                            <td>Z/003/2022</td>
+                            <td>Firma Piotr Sp. z o.o.</td>
+                            <td>amet consectetur</td>
+                            <td>780.30 zł</td>
+                            <td>Zakończone</td>
+                            <td>22.01.2023</td>
+                            <td>10.02.2023</td>
+                            <td>Piotr Wiśniewski</td>
+                            <td>piotr.wisniewski@gmail.com</td>
+                            <td>O/125</td>
+                            <td>FV/458</td>
+                        </tr>
+                        <tr class="orderRow">
+                            <td>Z/004/2023</td>
+                            <td>Firma Katarzyna Sp. z o.o.</td>
+                            <td>adipiscing elit</td>
+                            <td>920.75 zł</td>
+                            <td>Zakończone</td>
+                            <td>05.11.2022</td>
+                            <td>20.11.2022</td>
+                            <td>Katarzyna Lewandowska</td>
+                            <td>katarzyna.lewandowska@gmail.com</td>
+                            <td>O/126</td>
+                            <td>FV/459</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -22,7 +22,7 @@ namespace Firma.Intranet.Controllers
             return View();
         }
 
-        public IActionResult Kategorie()
+        public IActionResult Zamówienia()
         {
             return View();
         }

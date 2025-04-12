@@ -17,7 +17,23 @@ html {
     min-height: 100%;
 }
 
+.btn-primary {
+    color: #8B5151 !important;
+    background-color: #FFE0E0 !important;
+    border-color: #8B5151 !important;
+    cursor: pointer;
+}
 
+.btn {
+    background-color: #FFE0E0 !important;
+    color: #8B5151 !important;
+    font-weight: bold;
+}
+
+    .btn:hover {
+        background-color: #8B5151 !important;
+        color: #FFE0E0 !important;
+    }
 .rusty-background {
     background-color: #8B5151;
 }
@@ -26,6 +42,7 @@ header {
     background-color: #ffe0e0;
     position: sticky;
     top: 0;
+    z-index: 9999;
 }
 
     header a {

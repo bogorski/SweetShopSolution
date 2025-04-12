@@ -1,8 +1,77 @@
-﻿@{
-    ViewData["Title"] = "Pomoc";
-}
+﻿<div class="container py-5">
+    <h1 class="mb-4 text-center">Pomoc - Intranet Cukierni</h1>
 
-<h2>Pomoc</h2>
-<div class="text-center">
-    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">Sklep</div>
+                <div class="card-body">
+                    <p>Aby dodać nowe ciasto:</p>
+                    <ol>
+                        <li>Przejdź do zakładki <strong>Sklep</strong>.</li>
+                        <li>Uzupełnij dane i kliknij <strong>Dodaj ciasto</strong>.</li>
+                    </ol>
+                    <p>Produkty można także edytować i usuwać z listy.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header">Zamówienia</div>
+                <div class="card-body">
+                    <p>Zarządzaj zamówieniami w dedykowanym panelu:</p>
+                    <ul>
+                        <li>Podgląd szczegółów klikając na zamówienie.</li>
+                        <li>Edytowanie i zmiana statusu (np. w realizacji, wysłane).</li>
+                        <li>Usuwanie nieaktualnych zamówień.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card h-100">
+                <div class="card-header ">Cukiernie</div>
+                <div class="card-body">
+                    <ul>
+                        <li>Dodawanie lokalizacji cukierni z opisem i zdjęciem.</li>
+                        <li>Możliwość edytowania istniejących danych.</li>
+                        <li>Podgląd listy wszystkich cukierni.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-5">
+            <h2 class="mb-3">Najczęstsze pytania</h2>
+            <div class="accordion" id="faqAccordion">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq1">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                            Nie widzę przycisku "Zapisz" – co robić?
+                        </button>
+                    </h2>
+                    <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            Upewnij się, że wszystkie pola formularza są wypełnione. Jeśli nadal występuje problem, odśwież stronę lub skontaktuj się z administratorem.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="faq2">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                            Jak dodać zdjęcie do produktu?
+                        </button>
+                    </h2>
+                    <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body">
+                            W formularzu dodawania produktu kliknij pole <strong>"Wybierz plik"</strong> i załaduj zdjęcie z dysku.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
