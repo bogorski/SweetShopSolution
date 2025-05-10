@@ -1,96 +1,101 @@
-﻿<div class="container py-4">
-    <div class="text-center mb-4">
-        <h1 class="mb-2">Witaj w panelu zarządzania cukiernią!</h1>
-        <p class="text-muted">Dzisiaj jest @DateTime.Now.ToString("dddd, dd MMMM yyyy")</p>
-    </div>
+﻿<div class="container mt-5">
+    <div class="row text-center my-5">
+        <div class="col-12">
+            <h1 class="mb-2">Witaj w panelu zarządzania cukiernią!</h1>
+            <p class="text-muted">Dzisiaj jest @DateTime.Now.ToString("dddd, dd MMMM yyyy")</p>
+        </div>
 
-    <div class="alert alert-warning text-center">
-        📢 <strong>Uwaga:</strong> W piątek 18.04 system będzie niedostępny w godz. 7:00–9:00 z powodu konserwacji.
-    </div>
-
-    <div class="row text-center mb-4">
-        <div class="col-md-3">
-            <div class="border rounded p-3 bg-white shadow-sm">
-                <h5>🛒 Dzisiejsze zamówienia</h5>
-                <p class="display-6">12</p>
+        <div class="col-12 my-3">
+            <div class="alert alert-warning text-center">
+                📢 <strong>Uwaga:</strong> W piątek 18.04 system będzie niedostępny w godz. 7:00–9:00 z powodu konserwacji.
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="border rounded p-3 bg-white shadow-sm">
-                <h5>📦 Produkty</h5>
-                <p class="display-6">38</p>
+        <div class="col-12 my-3">
+            <div class="row text-center">
+                <div class="col-md-3">
+                    <div class="border rounded p-3 bg-white shadow-sm">
+                        <h5>🛒 Dzisiejsze zamówienia</h5>
+                        <p class="display-6">12</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="border rounded p-3 bg-white shadow-sm">
+                        <h5>📦 Produkty</h5>
+                        <p class="display-6">38</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="border rounded p-3 bg-white shadow-sm">
+                        <h5>🏪 Cukiernie</h5>
+                        <p class="display-6">5</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="border rounded p-3 bg-white shadow-sm">
+                        <h5>⭐ Najczęstszy wybór</h5>
+                        <p class="display-6">Sernik</p>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="border rounded p-3 bg-white shadow-sm">
-                <h5>🏪 Cukiernie</h5>
-                <p class="display-6">5</p>
+        <div class="col-12 my-5">
+            <div class="row g-3 text-center bakery-rose-background p-4">
+                <div class="col-md-6 col-lg-3">
+                    <a asp-area="" asp-controller="Home" asp-action="Sklep" class="text-decoration-none text-dark">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="card-icon mb-3 fs-2">📦</div>
+                                <h5 class="card-title">Sklep</h5>
+                                <p class="card-text">Dodawaj i zarządzaj produktami w sklepie.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <a asp-area="" asp-controller="Home" asp-action="Zamówienia" class="text-decoration-none text-dark">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="card-icon mb-3 fs-2">🛒</div>
+                                <h5 class="card-title">Zamówienia</h5>
+                                <p class="card-text">Przeglądaj i aktualizuj zamówienia klientów.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <a asp-area="" asp-controller="Home" asp-action="Cukiernie" class="text-decoration-none text-dark">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="card-icon mb-3 fs-2">🏪</div>
+                                <h5 class="card-title">Cukiernie</h5>
+                                <p class="card-text">Dodaj lub edytuj dane lokalnych cukierni.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="col-md-6 col-lg-3">
+                    <a asp-area="" asp-controller="Home" asp-action="Pomoc" class="text-decoration-none text-dark">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <div class="card-icon mb-3 fs-2">❓</div>
+                                <h5 class="card-title">Pomoc</h5>
+                                <p class="card-text">Zobacz instrukcje i najczęstsze pytania.</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="col-md-3">
-            <div class="border rounded p-3 bg-white shadow-sm">
-                <h5>⭐ Najczęstszy wybór</h5>
-                <p class="display-6">Sernik</p>
-            </div>
+        <div class="col-12 my-5">
+            <h4>Nadchodzące wydarzenia</h4>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">🧁 15.04 – Start promocji "Tydzień Babeczek"</li>
+                <li class="list-group-item">📦 20.04 – Inwentaryzacja magazynu centralnego</li>
+                <li class="list-group-item">🎉 01.05 – Dzień wolny (Święto Pracy)</li>
+            </ul>
         </div>
-    </div>
-
-    <div class="row g-4 text-center">
-        <div class="col-md-6 col-lg-3">
-            <a asp-area="" asp-controller="Home" asp-action="Sklep" class="text-decoration-none text-dark">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <div class="card-icon mb-3 fs-2">📦</div>
-                        <h5 class="card-title">Sklep</h5>
-                        <p class="card-text">Dodawaj i zarządzaj produktami w sklepie.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-            <a asp-area="" asp-controller="Home" asp-action="Zamówienia" class="text-decoration-none text-dark">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <div class="card-icon mb-3 fs-2">🛒</div>
-                        <h5 class="card-title">Zamówienia</h5>
-                        <p class="card-text">Przeglądaj i aktualizuj zamówienia klientów.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-            <a asp-area="" asp-controller="Home" asp-action="Cukiernie" class="text-decoration-none text-dark">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <div class="card-icon mb-3 fs-2">🏪</div>
-                        <h5 class="card-title">Cukiernie</h5>
-                        <p class="card-text">Dodaj lub edytuj dane lokalnych cukierni.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="col-md-6 col-lg-3">
-            <a asp-area="" asp-controller="Home" asp-action="Pomoc" class="text-decoration-none text-dark">
-                <div class="card shadow-sm h-100">
-                    <div class="card-body">
-                        <div class="card-icon mb-3 fs-2">❓</div>
-                        <h5 class="card-title">Pomoc</h5>
-                        <p class="card-text">Zobacz instrukcje i najczęstsze pytania.</p>
-                    </div>
-                </div>
-            </a>
-        </div>
-    </div>
-
-    <div class="mt-5">
-        <h4>Nadchodzące wydarzenia</h4>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">🧁 15.04 – Start promocji "Tydzień Babeczek"</li>
-            <li class="list-group-item">📦 20.04 – Inwentaryzacja magazynu centralnego</li>
-            <li class="list-group-item">🎉 01.05 – Dzień wolny (Święto Pracy)</li>
-        </ul>
     </div>
 </div>

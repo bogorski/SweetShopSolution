@@ -1,0 +1,139 @@
+﻿@* @model Firma.Data.Data.Sklep.Zamowienie *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Create"; *@
+@* } *@
+
+@* <h1>Create</h1> *@
+
+@* <h4>Zamowienie</h4> *@
+@* <hr /> *@
+@* <div class="row"> *@
+@*     <div class="col-md-4"> *@
+@*         <form asp-action="Create"> *@
+@*             <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Numer" class="control-label"></label> *@
+@*                 <input asp-for="Numer" class="form-control" /> *@
+@*                 <span asp-validation-for="Numer" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Kwota" class="control-label"></label> *@
+@*                 <input asp-for="Kwota" class="form-control" /> *@
+@*                 <span asp-validation-for="Kwota" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Status" class="control-label"></label> *@
+@*                 <input asp-for="Status" class="form-control" /> *@
+@*                 <span asp-validation-for="Status" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="DataZamowienia" class="control-label"></label> *@
+@*                 <input asp-for="DataZamowienia" class="form-control" /> *@
+@*                 <span asp-validation-for="DataZamowienia" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="DataOdbioru" class="control-label"></label> *@
+@*                 <input asp-for="DataOdbioru" class="form-control" /> *@
+@*                 <span asp-validation-for="DataOdbioru" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Uwagi" class="control-label"></label> *@
+@*                 <input asp-for="Uwagi" class="form-control" /> *@
+@*                 <span asp-validation-for="Uwagi" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="IdKlienta" class="control-label"></label> *@
+@*                 <select asp-for="IdKlienta" class ="form-control" asp-items="ViewBag.IdKlienta"></select> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <input type="submit" value="Create" class="btn btn-primary" /> *@
+@*             </div> *@
+@*         </form> *@
+@*     </div> *@
+@* </div> *@
+
+@* <div> *@
+@*     <a asp-action="Index">Back to List</a> *@
+@* </div> *@
+
+@* @section Scripts { *@
+@*     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} *@
+@* } *@
+@model Firma.Data.Data.Sklep.Zamowienie
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container my-5 d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-white">
+                <h4 class="mb-0 text-center">Formularz dodawania zamówienia</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Numer" class="form-label fw-bold"></label>
+                        <input asp-for="Numer" class="form-control" placeholder="Wprowadź numer zamówienia" />
+                        <span asp-validation-for="Numer" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Kwota" class="form-label fw-bold"></label>
+                        <input asp-for="Kwota" class="form-control" placeholder="Wprowadź kwotę" />
+                        <span asp-validation-for="Kwota" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Status" class="form-label fw-bold"></label>
+                        <input asp-for="Status" class="form-control" placeholder="Wprowadź status" />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="DataZamowienia" class="form-label fw-bold"></label>
+                        <input asp-for="DataZamowienia" class="form-control" type="date" />
+                        <span asp-validation-for="DataZamowienia" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="DataOdbioru" class="form-label fw-bold"></label>
+                        <input asp-for="DataOdbioru" class="form-control" type="date" />
+                        <span asp-validation-for="DataOdbioru" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Uwagi" class="form-label fw-bold"></label>
+                        <input asp-for="Uwagi" class="form-control" placeholder="Wprowadź uwagi" />
+                        <span asp-validation-for="Uwagi" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IdKlienta" class="form-label fw-bold"></label>
+                        <select asp-for="IdKlienta" class="form-control" asp-items="ViewBag.IdKlienta">
+                            <option value="">Wybierz klienta</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn shadow-none">Zapisz zamówienie</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <a asp-action="Index" class="btn">Powrót do listy</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

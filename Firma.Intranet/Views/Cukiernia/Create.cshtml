@@ -1,0 +1,140 @@
+﻿@* @model Firma.Data.Data.Sklep.Cukiernia *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Create"; *@
+@* } *@
+
+@* <h1>Create</h1> *@
+
+@* <h4>Cukiernia</h4> *@
+@* <hr /> *@
+@* <div class="row"> *@
+@*     <div class="col-md-4"> *@
+@*         <form asp-action="Create"> *@
+@*             <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Nazwa" class="control-label"></label> *@
+@*                 <input asp-for="Nazwa" class="form-control" /> *@
+@*                 <span asp-validation-for="Nazwa" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Adres" class="control-label"></label> *@
+@*                 <input asp-for="Adres" class="form-control" /> *@
+@*                 <span asp-validation-for="Adres" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Telefon" class="control-label"></label> *@
+@*                 <input asp-for="Telefon" class="form-control" /> *@
+@*                 <span asp-validation-for="Telefon" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Email" class="control-label"></label> *@
+@*                 <input asp-for="Email" class="form-control" /> *@
+@*                 <span asp-validation-for="Email" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="Opis" class="control-label"></label> *@
+@*                 <input asp-for="Opis" class="form-control" /> *@
+@*                 <span asp-validation-for="Opis" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="GodzinyOtwarcia" class="control-label"></label> *@
+@*                 <input asp-for="GodzinyOtwarcia" class="form-control" /> *@
+@*                 <span asp-validation-for="GodzinyOtwarcia" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="FotoUrl" class="control-label"></label> *@
+@*                 <input asp-for="FotoUrl" class="form-control" /> *@
+@*                 <span asp-validation-for="FotoUrl" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <input type="submit" value="Create" class="btn btn-primary" /> *@
+@*             </div> *@
+@*         </form> *@
+@*     </div> *@
+@* </div> *@
+
+@* <div> *@
+@*     <a asp-action="Index">Back to List</a> *@
+@* </div> *@
+
+@* @section Scripts { *@
+@*     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} *@
+@* } *@
+
+@model Firma.Data.Data.Sklep.Cukiernia
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container my-5 d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-white">
+                <h4 class="mb-0 text-center">Formularz dodawania cukierni</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Nazwa" class="form-label fw-bold"></label>
+                        <input asp-for="Nazwa" class="form-control" placeholder="Wprowadź nazwę cukierni" />
+                        <span asp-validation-for="Nazwa" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Adres" class="form-label fw-bold"></label>
+                        <input asp-for="Adres" class="form-control" placeholder="Wprowadź adres" />
+                        <span asp-validation-for="Adres" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Telefon" class="form-label fw-bold"></label>
+                        <input asp-for="Telefon" class="form-control" placeholder="Wprowadź numer telefonu" />
+                        <span asp-validation-for="Telefon" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Email" class="form-label fw-bold"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Wprowadź adres email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Opis" class="form-label fw-bold"></label>
+                        <textarea asp-for="Opis" class="form-control" rows="3" placeholder="Wprowadź opis cukierni"></textarea>
+                        <span asp-validation-for="Opis" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="GodzinyOtwarcia" class="form-label fw-bold"></label>
+                        <input asp-for="GodzinyOtwarcia" class="form-control" placeholder="Np. Pon-Pt 8:00-18:00" />
+                        <span asp-validation-for="GodzinyOtwarcia" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="FotoUrl" class="form-label fw-bold"></label>
+                        <input asp-for="FotoUrl" class="form-control" placeholder="Wprowadź URL do zdjęcia" />
+                        <span asp-validation-for="FotoUrl" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn shadow-none">Zapisz cukiernię</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <a asp-action="Index" class="btn">Powrót do listy</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

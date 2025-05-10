@@ -1,0 +1,113 @@
+﻿@* @model IEnumerable<Firma.Data.Data.Sklep.Klient> *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Index"; *@
+@* } *@
+
+@* <h1>Index</h1> *@
+
+@* <p> *@
+@*     <a asp-action="Create">Create New</a> *@
+@* </p> *@
+@* <table class="table"> *@
+@*     <thead> *@
+@*         <tr> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.Imie) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.Nazwisko) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.Adres) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.Telefon) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.Email) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.DataRejestracji) *@
+@*             </th> *@
+@*             <th></th> *@
+@*         </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@* @foreach (var item in Model) { *@
+@*         <tr> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.Imie) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.Nazwisko) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.Adres) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.Telefon) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.Email) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.DataRejestracji) *@
+@*             </td> *@
+@*             <td> *@
+@*                 <a asp-action="Edit" asp-route-id="@item.IdKlienta">Edit</a> | *@
+@*                 <a asp-action="Details" asp-route-id="@item.IdKlienta">Details</a> | *@
+@*                 <a asp-action="Delete" asp-route-id="@item.IdKlienta">Delete</a> *@
+@*             </td> *@
+@*         </tr> *@
+@* } *@
+@*     </tbody> *@
+@* </table> *@
+
+@model IEnumerable<Firma.Data.Data.Sklep.Klient>
+
+@{
+    ViewData["Title"] = "Klienci";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="h3">Lista klientów</h1>
+        <a asp-action="Create" class="btn btn-primary">Dodaj nowego klienta</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered align-middle">
+            <thead class="table-color">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Imie)</th>
+                    <th>@Html.DisplayNameFor(model => model.Nazwisko)</th>
+                    <th>@Html.DisplayNameFor(model => model.Adres)</th>
+                    <th>@Html.DisplayNameFor(model => model.Telefon)</th>
+                    <th>@Html.DisplayNameFor(model => model.Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.DataRejestracji)</th>
+                    <th class="text-center">Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="p-2">@Html.DisplayFor(modelItem => item.Imie)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Nazwisko)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Adres)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Telefon)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DataRejestracji)</td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group">
+                                <a asp-action="Edit" asp-route-id="@item.IdKlienta" class="btn btn-sm">Edytuj</a>
+                                <a asp-action="Delete" asp-route-id="@item.IdKlienta" class="btn btn-sm">Usuń</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

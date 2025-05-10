@@ -1,0 +1,81 @@
+﻿@* @model IEnumerable<Firma.Data.Data.Sklep.Kategoria> *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Index"; *@
+@* } *@
+
+@* <h1>Index</h1> *@
+
+@* <p> *@
+@*     <a asp-action="Create">Create New</a> *@
+@* </p> *@
+@* <table class="table"> *@
+@*     <thead> *@
+@*         <tr> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.Nazwa) *@
+@*             </th> *@
+@*             <th> *@
+@*                 @Html.DisplayNameFor(model => model.Opis) *@
+@*             </th> *@
+@*             <th></th> *@
+@*         </tr> *@
+@*     </thead> *@
+@*     <tbody> *@
+@* @foreach (var item in Model) { *@
+@*         <tr> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.Nazwa) *@
+@*             </td> *@
+@*             <td> *@
+@*                 @Html.DisplayFor(modelItem => item.Opis) *@
+@*             </td> *@
+@*             <td> *@
+@*                 <a asp-action="Edit" asp-route-id="@item.IdKategorii">Edit</a> | *@
+@*                 <a asp-action="Details" asp-route-id="@item.IdKategorii">Details</a> | *@
+@*                 <a asp-action="Delete" asp-route-id="@item.IdKategorii">Delete</a> *@
+@*             </td> *@
+@*         </tr> *@
+@* } *@
+@*     </tbody> *@
+@* </table> *@
+@model IEnumerable<Firma.Data.Data.Sklep.Kategoria>
+
+@{
+    ViewData["Title"] = "Kategorie";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="h3">Lista kategorii</h1>
+        <a asp-action="Create" class="btn btn-primary">Dodaj nową kategorię</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-hover table-bordered align-middle">
+            <thead class="table-color">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Nazwa)</th>
+                    <th>@Html.DisplayNameFor(model => model.Opis)</th>
+                    <th class="text-center">Akcje</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="p-2">@Html.DisplayFor(modelItem => item.Nazwa)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Opis)</td>
+                        <td class="text-center">
+                            <div class="btn-group" role="group">
+                                <a asp-action="Edit" asp-route-id="@item.IdKategorii" class="btn btn-sm">Edytuj</a>
+                                <a asp-action="Delete" asp-route-id="@item.IdKategorii" class="btn btn-sm">Usuń</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

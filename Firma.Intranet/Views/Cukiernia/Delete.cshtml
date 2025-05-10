@@ -1,0 +1,110 @@
+﻿@* @model Firma.Data.Data.Sklep.Cukiernia *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Delete"; *@
+@* } *@
+
+@* <h1>Delete</h1> *@
+
+@* <h3>Are you sure you want to delete this?</h3> *@
+@* <div> *@
+@*     <h4>Cukiernia</h4> *@
+@*     <hr /> *@
+@*     <dl class="row"> *@
+@*         <dt class = "col-sm-2"> *@
+@*             @Html.DisplayNameFor(model => model.Nazwa) *@
+@*         </dt> *@
+@*         <dd class = "col-sm-10"> *@
+@*             @Html.DisplayFor(model => model.Nazwa) *@
+@*         </dd> *@
+@*         <dt class = "col-sm-2"> *@
+@*             @Html.DisplayNameFor(model => model.Adres) *@
+@*         </dt> *@
+@*         <dd class = "col-sm-10"> *@
+@*             @Html.DisplayFor(model => model.Adres) *@
+@*         </dd> *@
+@*         <dt class = "col-sm-2"> *@
+@*             @Html.DisplayNameFor(model => model.Telefon) *@
+@*         </dt> *@
+@*         <dd class = "col-sm-10"> *@
+@*             @Html.DisplayFor(model => model.Telefon) *@
+@*         </dd> *@
+@*         <dt class = "col-sm-2"> *@
+@*             @Html.DisplayNameFor(model => model.Email) *@
+@*         </dt> *@
+@*         <dd class = "col-sm-10"> *@
+@*             @Html.DisplayFor(model => model.Email) *@
+@*         </dd> *@
+@*         <dt class = "col-sm-2"> *@
+@*             @Html.DisplayNameFor(model => model.Opis) *@
+@*         </dt> *@
+@*         <dd class = "col-sm-10"> *@
+@*             @Html.DisplayFor(model => model.Opis) *@
+@*         </dd> *@
+@*         <dt class = "col-sm-2"> *@
+@*             @Html.DisplayNameFor(model => model.GodzinyOtwarcia) *@
+@*         </dt> *@
+@*         <dd class = "col-sm-10"> *@
+@*             @Html.DisplayFor(model => model.GodzinyOtwarcia) *@
+@*         </dd> *@
+@*         <dt class = "col-sm-2"> *@
+@*             @Html.DisplayNameFor(model => model.FotoUrl) *@
+@*         </dt> *@
+@*         <dd class = "col-sm-10"> *@
+@*             @Html.DisplayFor(model => model.FotoUrl) *@
+@*         </dd> *@
+@*     </dl> *@
+    
+@*     <form asp-action="Delete"> *@
+@*         <input type="hidden" asp-for="IdCukierni" /> *@
+@*         <input type="submit" value="Delete" class="btn btn-danger" /> | *@
+@*         <a asp-action="Index">Back to List</a> *@
+@*     </form> *@
+@* </div> *@
+@model Firma.Data.Data.Sklep.Cukiernia
+
+@{
+    ViewData["Title"] = "Usuń cukiernię";
+}
+
+<div class="container my-5 d-flex justify-content-center">
+    <div class="col-md-8">
+        <div class="card border-danger">
+            <div class="card-header text-white">
+                <h4 class="mb-0 text-center">Potwierdź usunięcie cukierni</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4 fw-bold">Nazwa</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Nazwa)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Adres</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Adres)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Telefon</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Telefon)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Email</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Email)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Opis</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Opis)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Godziny otwarcia</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.GodzinyOtwarcia)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Adres URL zdjęcia</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.FotoUrl)</dd>
+                </dl>
+
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="IdCukierni" />
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-danger">Usuń</button>
+                        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

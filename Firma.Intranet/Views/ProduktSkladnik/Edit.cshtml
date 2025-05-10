@@ -1,0 +1,101 @@
+﻿@* @model Firma.Data.Data.Sklep.ProduktSkladnik *@
+
+@* @{ *@
+@*     ViewData["Title"] = "Edit"; *@
+@* } *@
+
+@* <h1>Edit</h1> *@
+
+@* <h4>ProduktSkladnik</h4> *@
+@* <hr /> *@
+@* <div class="row"> *@
+@*     <div class="col-md-4"> *@
+@*         <form asp-action="Edit"> *@
+@*             <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
+@*             <input type="hidden" asp-for="IdProduktSkladniki" /> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="IloscWymagana" class="control-label"></label> *@
+@*                 <input asp-for="IloscWymagana" class="form-control" /> *@
+@*                 <span asp-validation-for="IloscWymagana" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="IdProduktu" class="control-label"></label> *@
+@*                 <select asp-for="IdProduktu" class="form-control" asp-items="ViewBag.IdProduktu"></select> *@
+@*                 <span asp-validation-for="IdProduktu" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <label asp-for="IdSkladnika" class="control-label"></label> *@
+@*                 <select asp-for="IdSkladnika" class="form-control" asp-items="ViewBag.IdSkladnika"></select> *@
+@*                 <span asp-validation-for="IdSkladnika" class="text-danger"></span> *@
+@*             </div> *@
+@*             <div class="form-group"> *@
+@*                 <input type="submit" value="Save" class="btn btn-primary" /> *@
+@*             </div> *@
+@*         </form> *@
+@*     </div> *@
+@* </div> *@
+
+@* <div> *@
+@*     <a asp-action="Index">Back to List</a> *@
+@* </div> *@
+
+@* @section Scripts { *@
+@*     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} *@
+@* } *@
+@model Firma.Data.Data.Sklep.ProduktSkladnik
+
+@{
+    ViewData["Title"] = "Edytuj ProduktSkladnik";
+}
+
+<div class="container my-5 d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-white">
+                <h4 class="mb-0 text-center">Formularz edycji ProduktSkladnik</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <input type="hidden" asp-for="IdProduktSkladniki" />
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IloscWymagana" class="form-label fw-bold"></label>
+                        <input asp-for="IloscWymagana" class="form-control" placeholder="Wprowadź ilość wymaganą" />
+                        <span asp-validation-for="IloscWymagana" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IdProduktu" class="form-label fw-bold"></label>
+                        <select asp-for="IdProduktu" class="form-control" asp-items="ViewBag.IdProduktu">
+                            <option value="">Wybierz produkt</option>
+                        </select>
+                        <span asp-validation-for="IdProduktu" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IdSkladnika" class="form-label fw-bold"></label>
+                        <select asp-for="IdSkladnika" class="form-control" asp-items="ViewBag.IdSkladnika">
+                            <option value="">Wybierz składnik</option>
+                        </select>
+                        <span asp-validation-for="IdSkladnika" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <a asp-action="Index" class="btn btn-secondary">Powrót do listy</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

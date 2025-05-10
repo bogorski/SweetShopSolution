@@ -1,0 +1,66 @@
+﻿@model Firma.Data.Data.Sklep.Produkt
+
+@{
+    ViewData["Title"] = "Edytuj produkt";
+}
+
+<div class="container my-5 d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-white">
+                <h4 class="mb-0 text-center">Formularz edycji produktu</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <input type="hidden" asp-for="IdProduktu" />
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Nazwa" class="form-label fw-bold"></label>
+                        <input asp-for="Nazwa" class="form-control" placeholder="Wprowadź nazwę produktu" />
+                        <span asp-validation-for="Nazwa" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Opis" class="form-label fw-bold"></label>
+                        <textarea asp-for="Opis" class="form-control" rows="3" placeholder="Wprowadź opis produktu"></textarea>
+                        <span asp-validation-for="Opis" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Cena" class="form-label fw-bold"></label>
+                        <input asp-for="Cena" class="form-control" type="number" step="0.01" placeholder="Wprowadź cenę produktu" />
+                        <span asp-validation-for="Cena" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group form-check mb-3 py-2">
+                        <input class="form-check-input p-2" asp-for="Dostepnosc" />
+                        <label class="form-check-label px-2 fw-bold" for="Dostepnosc">@Html.DisplayNameFor(model => model.Dostepnosc)</label>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IdKategorii" class="form-label fw-bold"></label>
+                        <select asp-for="IdKategorii" class="form-control" asp-items="ViewBag.IdKategorii">
+                            <option value="">Wybierz kategorię</option>
+                        </select>
+                        <span asp-validation-for="IdKategorii" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn shadow-none">Zapisz zmiany</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <a asp-action="Index" class="btn">Powrót do listy</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

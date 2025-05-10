@@ -12,6 +12,46 @@ html {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
+.card-header {
+    background-color: #8B5151 !important;
+}
+
+.input-validation-error {
+    border-color: red;
+}
+
+input:focus {
+    background-color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 87, 51, 0.25) !important;
+}
+
+textarea:focus {
+    background-color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 87, 51, 0.25) !important;
+}
+
+select:focus {
+    background-color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 87, 51, 0.25) !important;
+}
+
+.form-check-input:checked {
+    background-color: #8B5151 !important;
+    border-color: #8B5151 !important;
+}
+
+.bg-success {
+    background-color: #88DA58 !important;
+}
+
+.bg-danger {
+    background-color: #AF0B0B !important;
+}
+
+.table-color {
+    background-color: #FFF0F0 !important;
+}
+
 html {
     position: relative;
     min-height: 100%;
@@ -34,8 +74,22 @@ html {
         background-color: #8B5151 !important;
         color: #FFE0E0 !important;
     }
+
+    .btn:focus, .btn:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
 .rusty-background {
     background-color: #8B5151;
+}
+
+.misty-rose-background {
+    background-color: #F7DAD9;
+}
+
+.bakery-rose-background {
+    background-color: #ffe0e0;
 }
 
 header {
@@ -70,15 +124,15 @@ header {
 }
 
 .logo {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
     border-radius: 100px;
     background-color: #8B5151;
 }
 
 .logo-lg {
-    width: 125px;
-    height: 125px;
+    width: 75px;
+    height: 75px;
     border-radius: 100px;
     background-color: #8B5151;
 }

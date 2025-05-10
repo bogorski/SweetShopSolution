@@ -1,4 +1,10 @@
+﻿using Firma.Data.Data;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System.Globalization;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<FirmaContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("FirmaContext") ?? throw new InvalidOperationException("Connection string 'FirmaContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
