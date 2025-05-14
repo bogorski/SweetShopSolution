@@ -105,7 +105,8 @@
                         <td>@item.DataZamowienia.ToShortDateString()</td>
                         <td>@item.DataOdbioru.ToShortDateString()</td>
                         <td>@Html.DisplayFor(modelItem => item.Uwagi)</td>
-                        <td>@Html.DisplayFor(modelItem => item.Klient.Adres)</td>
+                        @* <td>@Html.DisplayFor(modelItem => item.Klient.Imie)</td> *@
+                        <td>@item.Klient.Imie @item.Klient.Nazwisko</td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
                                 <a asp-action="Edit" asp-route-id="@item.IdZamowienia" class="btn btn-sm">Edytuj</a>

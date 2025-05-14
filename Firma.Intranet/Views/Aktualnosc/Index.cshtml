@@ -13,9 +13,6 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.LinkTytul)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Tytul)
             </th>
             <th>
@@ -24,15 +21,14 @@
             <th>
                 @Html.DisplayNameFor(model => model.Pozycja)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.AdresURL)
+            </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.LinkTytul)
-            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Tytul)
             </td>
@@ -41,7 +37,10 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Pozycja)
-            </td>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AdresURL)
+                </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdAktualnosci">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.IdAktualnosci">Details</a> |

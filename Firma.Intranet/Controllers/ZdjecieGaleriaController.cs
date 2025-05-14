@@ -2,30 +2,30 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Firma.Data.Data;
-using Firma.Data.Data.CMS;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Firma.Data.Data;
+using Firma.Data.Data.CMS;
 
 namespace Firma.Intranet.Controllers
 {
-    public class PomocController : Controller
+    public class ZdjecieGaleriaController : Controller
     {
         private readonly FirmaContext _context;
 
-        public PomocController(FirmaContext context)
+        public ZdjecieGaleriaController(FirmaContext context)
         {
             _context = context;
         }
 
-        // GET: Pomoc
+        // GET: ZdjecieGaleria
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pomoc.ToListAsync());
+            return View(await _context.ZdjecieGaleria.ToListAsync());
         }
 
-        // GET: Pomoc/Details/5
+        // GET: ZdjecieGaleria/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,39 +33,39 @@ namespace Firma.Intranet.Controllers
                 return NotFound();
             }
 
-            var pomoc = await _context.Pomoc
-                .FirstOrDefaultAsync(m => m.IdPomocy == id);
-            if (pomoc == null)
+            var zdjecieGaleria = await _context.ZdjecieGaleria
+                .FirstOrDefaultAsync(m => m.IdZdjecia == id);
+            if (zdjecieGaleria == null)
             {
                 return NotFound();
             }
 
-            return View(pomoc);
+            return View(zdjecieGaleria);
         }
 
-        // GET: Pomoc/Create
+        // GET: ZdjecieGaleria/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pomoc/Create
+        // POST: ZdjecieGaleria/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdPomocy,LinkTytul,Tytul,Tresc,Pozycja")] Pomoc pomoc)
+        public async Task<IActionResult> Create([Bind("IdZdjecia,Nazwa,Pozycja,AdresURL")] ZdjecieGaleria zdjecieGaleria)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(pomoc);
+                _context.Add(zdjecieGaleria);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(pomoc);
+            return View(zdjecieGaleria);
         }
 
-        // GET: Pomoc/Edit/5
+        // GET: ZdjecieGaleria/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,22 +73,22 @@ namespace Firma.Intranet.Controllers
                 return NotFound();
             }
 
-            var pomoc = await _context.Pomoc.FindAsync(id);
-            if (pomoc == null)
+            var zdjecieGaleria = await _context.ZdjecieGaleria.FindAsync(id);
+            if (zdjecieGaleria == null)
             {
                 return NotFound();
             }
-            return View(pomoc);
+            return View(zdjecieGaleria);
         }
 
-        // POST: Pomoc/Edit/5
+        // POST: ZdjecieGaleria/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdPomocy,LinkTytul,Tytul,Tresc,Pozycja")] Pomoc pomoc)
+        public async Task<IActionResult> Edit(int id, [Bind("IdZdjecia,Nazwa,Pozycja,AdresURL")] ZdjecieGaleria zdjecieGaleria)
         {
-            if (id != pomoc.IdPomocy)
+            if (id != zdjecieGaleria.IdZdjecia)
             {
                 return NotFound();
             }
@@ -97,12 +97,12 @@ namespace Firma.Intranet.Controllers
             {
                 try
                 {
-                    _context.Update(pomoc);
+                    _context.Update(zdjecieGaleria);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!PomocExists(pomoc.IdPomocy))
+                    if (!ZdjecieGaleriaExists(zdjecieGaleria.IdZdjecia))
                     {
                         return NotFound();
                     }
@@ -113,10 +113,10 @@ namespace Firma.Intranet.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(pomoc);
+            return View(zdjecieGaleria);
         }
 
-        // GET: Pomoc/Delete/5
+        // GET: ZdjecieGaleria/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,34 +124,34 @@ namespace Firma.Intranet.Controllers
                 return NotFound();
             }
 
-            var pomoc = await _context.Pomoc
-                .FirstOrDefaultAsync(m => m.IdPomocy == id);
-            if (pomoc == null)
+            var zdjecieGaleria = await _context.ZdjecieGaleria
+                .FirstOrDefaultAsync(m => m.IdZdjecia == id);
+            if (zdjecieGaleria == null)
             {
                 return NotFound();
             }
 
-            return View(pomoc);
+            return View(zdjecieGaleria);
         }
 
-        // POST: Pomoc/Delete/5
+        // POST: ZdjecieGaleria/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var pomoc = await _context.Pomoc.FindAsync(id);
-            if (pomoc != null)
+            var zdjecieGaleria = await _context.ZdjecieGaleria.FindAsync(id);
+            if (zdjecieGaleria != null)
             {
-                _context.Pomoc.Remove(pomoc);
+                _context.ZdjecieGaleria.Remove(zdjecieGaleria);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PomocExists(int id)
+        private bool ZdjecieGaleriaExists(int id)
         {
-            return _context.Pomoc.Any(e => e.IdPomocy == id);
+            return _context.ZdjecieGaleria.Any(e => e.IdZdjecia == id);
         }
     }
 }

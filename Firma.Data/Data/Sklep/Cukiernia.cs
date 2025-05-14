@@ -41,9 +41,16 @@ namespace Firma.Data.Data.Sklep
         public required string GodzinyOtwarcia { get; set; }
 
         [Required(ErrorMessage = "Zdjęcie jest wymagane.")]
-        [MaxLength(200, ErrorMessage = "Adres URL zdjęcia może zawierać maksymalnie 200 znaków.")]
+        [MaxLength(200, ErrorMessage = "Adres zdjęcia może zawierać maksymalnie 200 znaków.")]
+        [Column(TypeName = "nvarchar(200)")]
         [Display(Name = "Zdjęcie")]
-        public required string FotoUrl { get; set; }
+        public string AdresURL { get; set; }
+
+        [Required(ErrorMessage = "IFrame Google Map jest wymagane.")]
+        [MaxLength(500, ErrorMessage = "IFrame Google Map może zawierać maksymalnie 500 znaków.")]
+        [Column(TypeName = "nvarchar(500)")]
+        [Display(Name = "Google Map")]
+        public string IFrameGoogleMap { get; set; }
     }
 
 }

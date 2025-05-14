@@ -8,8 +8,6 @@ namespace Firma.Data.Data.Sklep
         [Key]
         public int IdProduktu { get; set; }
 
-    
-
         [Required(ErrorMessage = "Nazwa jest wymagana.")]
         [MaxLength(100, ErrorMessage = "Nazwa może zawierać maksymalnie 100 znaków.")]
         [Display(Name = "Nazwa")]
@@ -24,6 +22,10 @@ namespace Firma.Data.Data.Sklep
         [Column(TypeName = "money")]
         [Display(Name = "Cena")]
         public decimal Cena { get; set; }
+
+        [Column(TypeName = "nvarchar(200)")]
+        [Display(Name = "Adres URL")]
+        public string? AdresURL { get; set; }
 
         [Required(ErrorMessage = "Dostępność jest wymagana.")]
         [Display(Name = "Dostępność")]

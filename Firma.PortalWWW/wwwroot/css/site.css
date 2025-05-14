@@ -9,6 +9,10 @@ html {
     cursor: pointer;
 }
 
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
 .btn {
     background-color: #FFE0E0 !important;
     color: #8B5151 !important;
@@ -19,6 +23,37 @@ html {
         background-color: #8B5151 !important;
         color: #FFE0E0 !important;
     }
+
+    .btn:focus, .btn:active {
+        outline: none !important;
+        box-shadow: none !important;
+    }
+
+input:focus {
+    background-color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 87, 51, 0.25) !important;
+}
+
+textarea:focus {
+    background-color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 87, 51, 0.25) !important;
+}
+
+.product-img {
+    width: 100%;
+    height: 350px; 
+    object-fit: cover;
+}
+
+select:focus {
+    background-color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 87, 51, 0.25) !important;
+}
+
+.form-check-input:checked {
+    background-color: #8B5151 !important;
+    border-color: #8B5151 !important;
+}
 
 .heightCarouselImg {
     object-fit: cover;

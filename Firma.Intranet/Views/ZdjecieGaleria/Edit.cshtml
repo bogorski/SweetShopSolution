@@ -1,4 +1,4 @@
-﻿@model Firma.Data.Data.CMS.Aktualnosc
+﻿@model Firma.Data.Data.CMS.ZdjecieGaleria
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,23 +6,17 @@
 
 <h1>Edit</h1>
 
-<h4>Aktualnosc</h4>
+<h4>ZdjecieGaleria</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="IdAktualnosci" />
-         
+            <input type="hidden" asp-for="IdZdjecia" />
             <div class="form-group">
-                <label asp-for="Tytul" class="control-label"></label>
-                <input asp-for="Tytul" class="form-control" />
-                <span asp-validation-for="Tytul" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tresc" class="control-label"></label>
-                <input asp-for="Tresc" class="form-control" />
-                <span asp-validation-for="Tresc" class="text-danger"></span>
+                <label asp-for="Nazwa" class="control-label"></label>
+                <input asp-for="Nazwa" class="form-control" />
+                <span asp-validation-for="Nazwa" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Pozycja" class="control-label"></label>

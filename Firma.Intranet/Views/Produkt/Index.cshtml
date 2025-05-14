@@ -17,6 +17,7 @@
                     <th>@Html.DisplayNameFor(model => model.Nazwa)</th>
                     <th>@Html.DisplayNameFor(model => model.Opis)</th>
                     <th>@Html.DisplayNameFor(model => model.Cena)</th>
+                    <th>@Html.DisplayNameFor(model => model.AdresURL)</th>
                     <th>@Html.DisplayNameFor(model => model.Dostepnosc)</th>
                     <th>@Html.DisplayNameFor(model => model.Kategoria)</th>
                     <th class="text-center">Akcje</th>
@@ -29,6 +30,7 @@
                         <td class="p-2">@Html.DisplayFor(modelItem => item.Nazwa)</td>
                         <td>@Html.DisplayFor(modelItem => item.Opis)</td>
                         <td>@item.Cena.ToString("C")</td>
+                        <td>@item.AdresURL</td>
                         <td class="text-center">
                             @if (item.Dostepnosc)
                             {

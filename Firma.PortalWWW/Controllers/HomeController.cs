@@ -1,21 +1,38 @@
 using System.Diagnostics;
+using Firma.Data.Data;
 using Firma.PortalWWW.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Firma.PortalWWW.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly FirmaContext _context;
+        public HomeController(ILogger<HomeController> logger, FirmaContext firmaContext)
         {
             _logger = logger;
+            _context = firmaContext;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            return View();
+            ViewBag.ModelStrony = await _context.Strona.OrderBy(s => s.Pozycja).ToListAsync();
+
+            ViewBag.ModelAktualnosci =
+            (
+                from aktualnosc in _context.Aktualnosc
+                orderby aktualnosc.Pozycja descending 
+                select aktualnosc
+            ).ToList();
+            if (id == null)
+            {
+                id = 1;
+            }
+            var item = await _context.Strona.FindAsync(id);
+            
+            return View(item);
         }
 
         public IActionResult Cukiernie()

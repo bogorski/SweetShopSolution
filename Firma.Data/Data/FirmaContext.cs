@@ -13,7 +13,7 @@ namespace Firma.Data.Data
 
         public DbSet<Strona> Strona { get; set; } = default!;
         public DbSet<Aktualnosc> Aktualnosc { get; set; } = default!;
-        public DbSet<Pomoc> Pomoc { get; set; } = default!;
+        public DbSet<ZdjecieGaleria> ZdjecieGaleria { get; set; } = default!;
         public DbSet<Cukiernia> Cukiernia { get; set; } = default!;
         public DbSet<Kategoria> Kategoria { get; set; } = default!;
         public DbSet<Zamowienie> Zamowienie { get; set; } = default!;

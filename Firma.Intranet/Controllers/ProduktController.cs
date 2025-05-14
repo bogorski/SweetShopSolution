@@ -22,7 +22,7 @@ namespace Firma.Intranet.Controllers
         // GET: Produkt
         public async Task<IActionResult> Index()
         {
-            var firmaIntranetContext = _context.Produkt.Include(p => p.Kategoria);
+            var firmaIntranetContext = _context.Produkt.Include(p => p.Kategoria).OrderByDescending(p => p.IdProduktu); ;
             return View(await firmaIntranetContext.ToListAsync());
         }
 
@@ -57,7 +57,7 @@ namespace Firma.Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdProduktu,Nazwa,Opis,Cena,Dostepnosc,IdKategorii")] Produkt produkt)
+        public async Task<IActionResult> Create([Bind("IdProduktu,Nazwa,Opis,Cena,AdresURL,Dostepnosc,IdKategorii")] Produkt produkt)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Firma.Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdProduktu,Nazwa,Opis,Cena,Dostepnosc,IdKategorii")] Produkt produkt)
+        public async Task<IActionResult> Edit(int id, [Bind("IdProduktu,Nazwa,Opis,Cena,Dostepnosc,IdKategorii,AdresURL")] Produkt produkt)
         {
             if (id != produkt.IdProduktu)
             {

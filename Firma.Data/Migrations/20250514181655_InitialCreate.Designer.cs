@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Firma.Data.Migrations
 {
     [DbContext(typeof(FirmaContext))]
-    [Migration("20250510134032_M1")]
-    partial class M1
+    [Migration("20250514181655_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,10 +33,8 @@ namespace Firma.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAktualnosci"));
 
-                    b.Property<string>("LinkTytul")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                    b.Property<string>("AdresURL")
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("Pozycja")
                         .HasColumnType("int");
@@ -53,36 +51,6 @@ namespace Firma.Data.Migrations
                     b.HasKey("IdAktualnosci");
 
                     b.ToTable("Aktualnosc");
-                });
-
-            modelBuilder.Entity("Firma.Data.Data.CMS.Pomoc", b =>
-                {
-                    b.Property<int>("IdPomocy")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPomocy"));
-
-                    b.Property<string>("LinkTytul")
-                        .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
-
-                    b.Property<int>("Pozycja")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Tresc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(MAX)");
-
-                    b.Property<string>("Tytul")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("IdPomocy");
-
-                    b.ToTable("Pomoc");
                 });
 
             modelBuilder.Entity("Firma.Data.Data.CMS.Strona", b =>
@@ -115,6 +83,30 @@ namespace Firma.Data.Migrations
                     b.ToTable("Strona");
                 });
 
+            modelBuilder.Entity("Firma.Data.Data.CMS.ZdjecieGaleria", b =>
+                {
+                    b.Property<int>("IdZdjecia")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdZdjecia"));
+
+                    b.Property<string>("AdresURL")
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Nazwa")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<int>("Pozycja")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdZdjecia");
+
+                    b.ToTable("ZdjecieGaleria");
+                });
+
             modelBuilder.Entity("Firma.Data.Data.Sklep.Cukiernia", b =>
                 {
                     b.Property<int>("IdCukierni")
@@ -128,19 +120,24 @@ namespace Firma.Data.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("AdresURL")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("FotoUrl")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
                     b.Property<string>("GodzinyOtwarcia")
                         .IsRequired()
                         .HasColumnType("nvarchar(MAX)");
+
+                    b.Property<string>("IFrameGoogleMap")
+                        .IsRequired()
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
 
                     b.Property<string>("Nazwa")
                         .IsRequired()
@@ -233,6 +230,9 @@ namespace Firma.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdProduktu"));
 
+                    b.Property<string>("AdresURL")
+                        .HasColumnType("nvarchar(200)");
+
                     b.Property<decimal>("Cena")
                         .HasColumnType("money");
 
@@ -317,6 +317,9 @@ namespace Firma.Data.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdSkladnika"));
+
+                    b.Property<string>("AdresURL")
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("Jednostka")
                         .IsRequired()

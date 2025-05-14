@@ -8,7 +8,7 @@ namespace Firma.Data.Data.Sklep
         [Key]
         public int IdProduktSkladniki { get; set; }
 
-        [Required(ErrorMessage = "Ilość wymagana jest wymagana.")]
+        [Required(ErrorMessage = "Ilość jest wymagana.")]
         [Display(Name = "Ilość wymagana")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal IloscWymagana { get; set; }

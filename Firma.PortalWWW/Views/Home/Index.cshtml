@@ -1,57 +1,15 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model Firma.Data.Data.CMS.Strona
+@{
+    ViewData["Title"] = Model.LinkTytul;
 }
 
 <div class="container">
     <div class="row my-5 py-5">
-        <div id="carouselExample" class="carousel slide">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <div class="row px-5">
-                        <div class="col-12 offset-lg-1 col-lg-5 text-center d-none d-md-block">
-                            <img src="~/content/lodowkomat.jpg" class="d-block w-100 heightCarouselImg" alt="First slide lodowkomat">
-                        </div>
-                        <div class="col-12 col-lg-5 pt-5 pt-lg-0">
-                            <h4 class="text-center">Torty dostępne 24/7!</h4>
-                            <h5 class="text-center">Zamów już dziś do Lodówkomatu InPostu!</h5>
-                            <p class="text-center">
-                                Jak to działa? Wystarczy odwiedzić naszą stronę internetową i wybrać swój ulubiony tort spośród naszej bogatej oferty, a następnie wybrać Lodówkomat InPost, do którego go dostarczymy. Nie musisz się martwić o godziny otwarcia - nasze torty są dostępne dla Ciebie 24/7!
-                            </p>
-                            <div class="text-center">
-                                <a class="btn btn-primary" role="button" asp-area="" asp-controller="Home" asp-action="Sklep">WYBIERZ I ZAMÓW TORT</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row px-5">
-                        <div class="col-12 offset-lg-1 col-lg-5 text-center d-none d-md-block">
-                            <img src="~/content/new_shop.jpg" class="d-block w-100 heightCarouselImg" alt="Second slide new shop">
-                        </div>
-                        <div class="col-12 col-lg-5 pt-5 pt-lg-0">
-                            <h4 class="text-center">Już otwarte!</h4>
-                            <h5 class="text-center">Nowa cukiernia, nowe smaki, nowe doznania!</h5>
-                            <p class="text-center">
-                                Witajcie w naszej najnowszej cukierni, miejscu, które tętni życiem i aromatem świeżo pieczonych wypieków! Z ogromną radością ogłaszamy otwarcie naszej nowej przystani dla miłośników słodkości. Nasza cukiernia to nie tylko miejsce, gdzie można znaleźć najwyższej jakości wypieki.
-                            </p>
-                            <div class="text-center">
-                                <a class="btn btn-primary" role="button" asp-area="" asp-controller="Home" asp-action="Cukiernie">WYZNACZ TRASĘ</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
+        @await Html.PartialAsync("Aktualnosci", (IEnumerable<Firma.Data.Data.CMS.Aktualnosc>)ViewBag.ModelAktualnosci)
     </div>
-  
+    <div>
+       @Model.Tresc
+    </div>
     <dic class="row my-5 py-5 bakery-rose-background">
         <div class="col">
             <h2 class="text-center mb-5">Dlaczego warto nas wybrać?</h2>

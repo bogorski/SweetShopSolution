@@ -39,5 +39,10 @@ namespace Firma.Data.Data.Sklep
         public DateTime DataRejestracji { get; set; }
 
         public ICollection<Zamowienie> Zamowienia { get; set; } = new List<Zamowienie>();
+
+        public string ImieINazwisko
+        {
+            get => $"{Imie} {Nazwisko}";
+        }
     }
 }

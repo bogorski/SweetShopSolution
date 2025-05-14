@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Firma.Data.Data;
+﻿using Firma.Data.Data;
 using Firma.Data.Data.CMS;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Firma.Intranet.Controllers
@@ -19,7 +14,7 @@ namespace Firma.Intranet.Controllers
             _context = context;
         }
 
-        // GET: Aktualnosc
+        // GET: Aktualnosci
         public async Task<IActionResult> Index()
         {
             return View(await _context.Aktualnosc.ToListAsync());
@@ -50,11 +45,10 @@ namespace Firma.Intranet.Controllers
         }
 
         // POST: Aktualnosc/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdAktualnosci,LinkTytul,Tytul,Tresc,Pozycja")] Aktualnosc aktualnosc)
+        public async Task<IActionResult> Create(
+            [Bind("IdAktualnosci,Tytul,Tresc,Pozycja,AdresURL")] Aktualnosc aktualnosc)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +56,7 @@ namespace Firma.Intranet.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(aktualnosc);
         }
 
@@ -78,15 +73,16 @@ namespace Firma.Intranet.Controllers
             {
                 return NotFound();
             }
+
             return View(aktualnosc);
         }
 
+
         // POST: Aktualnosc/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdAktualnosci,LinkTytul,Tytul,Tresc,Pozycja")] Aktualnosc aktualnosc)
+        public async Task<IActionResult> Edit(int id,
+            [Bind("IdAktualnosci,Tytul,Tresc,Pozycja,AdresURL")] Aktualnosc aktualnosc)
         {
             if (id != aktualnosc.IdAktualnosci)
             {
@@ -111,8 +107,10 @@ namespace Firma.Intranet.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(aktualnosc);
         }
 

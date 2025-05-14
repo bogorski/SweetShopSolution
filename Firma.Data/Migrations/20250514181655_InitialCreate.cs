@@ -1,12 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace Firma.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class M1 : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,10 +17,10 @@ namespace Firma.Data.Migrations
                 {
                     IdAktualnosci = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    LinkTytul = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Tytul = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Tresc = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
-                    Pozycja = table.Column<int>(type: "int", nullable: false)
+                    Pozycja = table.Column<int>(type: "int", nullable: false),
+                    AdresURL = table.Column<string>(type: "nvarchar(200)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,7 +39,8 @@ namespace Firma.Data.Migrations
                     Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Opis = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     GodzinyOtwarcia = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
-                    FotoUrl = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                    AdresURL = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    IFrameGoogleMap = table.Column<string>(type: "nvarchar(500)", maxLength: 500, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -79,29 +80,14 @@ namespace Firma.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Pomoc",
-                columns: table => new
-                {
-                    IdPomocy = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    LinkTytul = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    Tytul = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Tresc = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
-                    Pozycja = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Pomoc", x => x.IdPomocy);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Skladnik",
                 columns: table => new
                 {
                     IdSkladnika = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nazwa = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Jednostka = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
+                    Jednostka = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    AdresURL = table.Column<string>(type: "nvarchar(200)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -125,6 +111,21 @@ namespace Firma.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ZdjecieGaleria",
+                columns: table => new
+                {
+                    IdZdjecia = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Nazwa = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
+                    Pozycja = table.Column<int>(type: "int", nullable: false),
+                    AdresURL = table.Column<string>(type: "nvarchar(200)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ZdjecieGaleria", x => x.IdZdjecia);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Produkt",
                 columns: table => new
                 {
@@ -133,6 +134,7 @@ namespace Firma.Data.Migrations
                     Nazwa = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Opis = table.Column<string>(type: "nvarchar(MAX)", nullable: false),
                     Cena = table.Column<decimal>(type: "money", nullable: false),
+                    AdresURL = table.Column<string>(type: "nvarchar(200)", nullable: true),
                     Dostepnosc = table.Column<bool>(type: "bit", nullable: false),
                     IdKategorii = table.Column<int>(type: "int", nullable: false)
                 },
@@ -256,9 +258,6 @@ namespace Firma.Data.Migrations
                 name: "Cukiernia");
 
             migrationBuilder.DropTable(
-                name: "Pomoc");
-
-            migrationBuilder.DropTable(
                 name: "ProduktSkladnik");
 
             migrationBuilder.DropTable(
@@ -266,6 +265,9 @@ namespace Firma.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Strona");
+
+            migrationBuilder.DropTable(
+                name: "ZdjecieGaleria");
 
             migrationBuilder.DropTable(
                 name: "Produkt");

@@ -32,6 +32,13 @@
                         <input asp-for="Cena" class="form-control" type="number" step="0.01" placeholder="Wprowadź cenę produktu" />
                         <span asp-validation-for="Cena" class="text-danger"></span>
                     </div>
+                    
+                    <div class="form-group mb-3">
+                        <label asp-for="AdresURL" class="form-label fw-bold"></label>
+                        <input asp-for="AdresURL" class="form-control" placeholder="Wprowadź adres URL zdjęcia produktu" />
+                        <span asp-validation-for="AdresURL" class="text-danger"></span>
+                    </div>
+
 
                     <div class="form-group form-check mb-3 py-2">
                         <input class="form-check-input p-2" asp-for="Dostepnosc" />

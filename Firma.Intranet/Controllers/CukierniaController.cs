@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Firma.Data.Data;
 using Firma.Data.Data.Sklep;
@@ -54,7 +49,7 @@ namespace Firma.Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdCukierni,Nazwa,Adres,Telefon,Email,Opis,GodzinyOtwarcia,FotoUrl")] Cukiernia cukiernia)
+        public async Task<IActionResult> Create([Bind("IdCukierni,Nazwa,Adres,Telefon,Email,Opis,GodzinyOtwarcia,AdresURL,IFrameGoogleMap")] Cukiernia cukiernia)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +81,7 @@ namespace Firma.Intranet.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdCukierni,Nazwa,Adres,Telefon,Email,Opis,GodzinyOtwarcia,FotoUrl")] Cukiernia cukiernia)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCukierni,Nazwa,Adres,Telefon,Email,Opis,GodzinyOtwarcia,AdresURL,IFrameGoogleMap")] Cukiernia cukiernia)
         {
             if (id != cukiernia.IdCukierni)
             {

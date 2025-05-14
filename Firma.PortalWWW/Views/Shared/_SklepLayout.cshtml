@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Firma.PortalWWW</title>
+    <title>@ViewData["Sklep"] - Firma.PortalWWW</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Firma.PortalWWW.styles.css" asp-append-version="true" />
@@ -17,9 +17,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <a class="navbar-brand d-none d-md-block mx-auto mx-md-0" href="/">
-                     <img src="~/content/logo.svg" class="logo" alt="Logo"> 
+                    <img src="~/content/logo.svg" class="logo" alt="Logo">
                 </a>
-                @await Html.PartialAsync("Odnosniki", (IEnumerable<Firma.Data.Data.CMS.Strona>)ViewBag.ModelStrony)
+                @await Html.PartialAsync("KategorieMenu", (IEnumerable<Firma.Data.Data.Sklep.Kategoria>)ViewBag.ModelKategorie)
             </div>
         </nav>
     </header>
@@ -28,6 +28,7 @@
             @RenderBody()
         </main>
     </div>
+   
     @await Html.PartialAsync("Footer")
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

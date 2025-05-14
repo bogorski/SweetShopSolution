@@ -1,76 +1,4 @@
-﻿@* @model IEnumerable<Firma.Data.Data.Sklep.Cukiernia> *@
-
-@* @{ *@
-@*     ViewData["Title"] = "Index"; *@
-@* } *@
-
-@* <h1>Index</h1> *@
-
-@* <p> *@
-@*     <a asp-action="Create">Create New</a> *@
-@* </p> *@
-@* <table class="table"> *@
-@*     <thead> *@
-@*         <tr> *@
-@*             <th> *@
-@*                 @Html.DisplayNameFor(model => model.Nazwa) *@
-@*             </th> *@
-@*             <th> *@
-@*                 @Html.DisplayNameFor(model => model.Adres) *@
-@*             </th> *@
-@*             <th> *@
-@*                 @Html.DisplayNameFor(model => model.Telefon) *@
-@*             </th> *@
-@*             <th> *@
-@*                 @Html.DisplayNameFor(model => model.Email) *@
-@*             </th> *@
-@*             <th> *@
-@*                 @Html.DisplayNameFor(model => model.Opis) *@
-@*             </th> *@
-@*             <th> *@
-@*                 @Html.DisplayNameFor(model => model.GodzinyOtwarcia) *@
-@*             </th> *@
-@*             <th> *@
-@*                 @Html.DisplayNameFor(model => model.FotoUrl) *@
-@*             </th> *@
-@*             <th></th> *@
-@*         </tr> *@
-@*     </thead> *@
-@*     <tbody> *@
-@* @foreach (var item in Model) { *@
-@*         <tr> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => item.Nazwa) *@
-@*             </td> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => item.Adres) *@
-@*             </td> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => item.Telefon) *@
-@*             </td> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => item.Email) *@
-@*             </td> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => item.Opis) *@
-@*             </td> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => item.GodzinyOtwarcia) *@
-@*             </td> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => item.FotoUrl) *@
-@*             </td> *@
-@*             <td> *@
-@*                 <a asp-action="Edit" asp-route-id="@item.IdCukierni">Edit</a> | *@
-@*                 <a asp-action="Details" asp-route-id="@item.IdCukierni">Details</a> | *@
-@*                 <a asp-action="Delete" asp-route-id="@item.IdCukierni">Delete</a> *@
-@*             </td> *@
-@*         </tr> *@
-@* } *@
-@*     </tbody> *@
-@* </table> *@
-
-@model IEnumerable<Firma.Data.Data.Sklep.Cukiernia>
+﻿@model IEnumerable<Firma.Data.Data.Sklep.Cukiernia>
 
 @{
     ViewData["Title"] = "Cukiernie";
@@ -92,7 +20,9 @@
                     <th>@Html.DisplayNameFor(model => model.Email)</th>
                     <th>@Html.DisplayNameFor(model => model.Opis)</th>
                     <th>@Html.DisplayNameFor(model => model.GodzinyOtwarcia)</th>
-                    <th>@Html.DisplayNameFor(model => model.FotoUrl)</th>
+                    <th>@Html.DisplayNameFor(model => model.AdresURL)</th>
+                    <th>@Html.DisplayNameFor(model => model.IFrameGoogleMap)</th>
+                    @* <th>@Html.DisplayNameFor(model => model.FotoUrl)</th> *@
                     <th class="text-center">Akcje</th>
                 </tr>
             </thead>
@@ -106,7 +36,9 @@
                         <td>@Html.DisplayFor(modelItem => item.Email)</td>
                         <td>@Html.DisplayFor(modelItem => item.Opis)</td>
                         <td>@Html.DisplayFor(modelItem => item.GodzinyOtwarcia)</td>
-                        <td>@Html.DisplayFor(modelItem => item.FotoUrl)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdresURL)</td>
+                        <td>@Html.DisplayFor(modelItem => item.IFrameGoogleMap)</td>
+                        @* <td>@Html.DisplayFor(modelItem => item.FotoUrl)</td> *@
                         <td class="text-center">
                             <div class="btn-group" role="group">
                                 <a asp-action="Edit" asp-route-id="@item.IdCukierni" class="btn btn-sm">Edytuj</a>

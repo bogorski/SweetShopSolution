@@ -48,7 +48,7 @@ namespace Firma.Intranet.Controllers
         // GET: Zamowienie/Create
         public IActionResult Create()
         {
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "Adres");
+            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko");
             return View();
         }
 

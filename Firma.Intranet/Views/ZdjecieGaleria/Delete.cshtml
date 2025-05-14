@@ -1,4 +1,4 @@
-﻿@model Firma.Data.Data.CMS.Aktualnosc
+﻿@model Firma.Data.Data.CMS.ZdjecieGaleria
 
 @{
     ViewData["Title"] = "Delete";
@@ -8,34 +8,31 @@
 
 <h3>Are you sure you want to delete this?</h3>
 <div>
-    <h4>Aktualnosc</h4>
+    <h4>ZdjecieGaleria</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tytul)
+            @Html.DisplayNameFor(model => model.Nazwa)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tytul)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Tresc)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Tresc)
+            @Html.DisplayFor(model => model.Nazwa)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Pozycja)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Pozycja)
-        </dd> 
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.AdresURL)
+        </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.AdresURL)
         </dd>
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="IdAktualnosci" />
+        <input type="hidden" asp-for="IdZdjecia" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

@@ -1,45 +1,4 @@
-﻿@* @model IEnumerable<Firma.Data.Data.Sklep.Skladnik> *@
-
-@* @{ *@
-@*     ViewData["Title"] = "Index"; *@
-@* } *@
-
-@* <h1>Index</h1> *@
-
-@* <p> *@
-@*     <a asp-action="Create">Create New</a> *@
-@* </p> *@
-@* <table class="table"> *@
-@*     <thead> *@
-@*         <tr> *@
-@*             <th> *@
-@*                 @Html.DisplayNameFor(model => model.Nazwa) *@
-@*             </th> *@
-@*             <th> *@
-@*                 @Html.DisplayNameFor(model => model.Jednostka) *@
-@*             </th> *@
-@*             <th></th> *@
-@*         </tr> *@
-@*     </thead> *@
-@*     <tbody> *@
-@* @foreach (var item in Model) { *@
-@*         <tr> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => item.Nazwa) *@
-@*             </td> *@
-@*             <td> *@
-@*                 @Html.DisplayFor(modelItem => item.Jednostka) *@
-@*             </td> *@
-@*             <td> *@
-@*                 <a asp-action="Edit" asp-route-id="@item.IdSkladnika">Edit</a> | *@
-@*                 <a asp-action="Details" asp-route-id="@item.IdSkladnika">Details</a> | *@
-@*                 <a asp-action="Delete" asp-route-id="@item.IdSkladnika">Delete</a> *@
-@*             </td> *@
-@*         </tr> *@
-@* } *@
-@*     </tbody> *@
-@* </table> *@
-@model IEnumerable<Firma.Data.Data.Sklep.Skladnik>
+﻿@model IEnumerable<Firma.Data.Data.Sklep.Skladnik>
 
 @{
     ViewData["Title"] = "Skladniki";
@@ -57,6 +16,7 @@
                 <tr>
                     <th>@Html.DisplayNameFor(model => model.Nazwa)</th>
                     <th>@Html.DisplayNameFor(model => model.Jednostka)</th>
+                    <th>@Html.DisplayNameFor(model => model.AdresURL)</th>
                     <th class="text-center">Akcje</th>
                 </tr>
             </thead>
@@ -66,6 +26,7 @@
                     <tr>
                         <td class="p-2">@Html.DisplayFor(modelItem => item.Nazwa)</td>
                         <td>@Html.DisplayFor(modelItem => item.Jednostka)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AdresURL)</td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
                                 <a asp-action="Edit" asp-route-id="@item.IdSkladnika" class="btn btn-sm">Edytuj</a>

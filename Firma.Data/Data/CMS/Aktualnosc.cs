@@ -8,11 +8,6 @@ namespace Firma.Data.Data.CMS
         [Key]
         public int IdAktualnosci { get; set; }
 
-        [Required(ErrorMessage = "Tytuł odnośnika jest wymagany.")]
-        [MaxLength(10, ErrorMessage = "Link może zawierac max 10 znaków.")]
-        [Display(Name = "Tytuł odnośnika")]
-        public required string LinkTytul { get; set; }
-
         [Required(ErrorMessage = "Tytuł aktualności jest wymagany.")]
         [MaxLength(50, ErrorMessage = "Tytuł może zawierac max 50 znaków.")]
         [Display(Name = "Tytuł aktualności")]
@@ -25,5 +20,9 @@ namespace Firma.Data.Data.CMS
         [Required(ErrorMessage = "Wpisz pozycję wyświetlania.")]
         [Display(Name = "Pozycja wyświetlania")]
         public int Pozycja { get; set; }
+
+        [Column(TypeName = "nvarchar(200)")]
+        [Display(Name = "Adres URL")]
+        public string? AdresURL { get; set; }
     }
 }
