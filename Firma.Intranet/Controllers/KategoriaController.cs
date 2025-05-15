@@ -22,7 +22,9 @@ namespace Firma.Intranet.Controllers
         // GET: Kategoria
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Kategoria.ToListAsync());
+            return View(await _context.Kategoria
+                .OrderBy(k => k.Nazwa)
+                .ToListAsync());
         }
 
         // GET: Kategoria/Details/5

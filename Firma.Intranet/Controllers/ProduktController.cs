@@ -22,7 +22,10 @@ namespace Firma.Intranet.Controllers
         // GET: Produkt
         public async Task<IActionResult> Index()
         {
-            var firmaIntranetContext = _context.Produkt.Include(p => p.Kategoria).OrderByDescending(p => p.IdProduktu); ;
+            var firmaIntranetContext = _context.Produkt
+                .Include(p => p.Kategoria)
+                .OrderByDescending(p => p.Dostepnosc)
+                .ThenByDescending(p => p.IdProduktu);
             return View(await firmaIntranetContext.ToListAsync());
         }
 

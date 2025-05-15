@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Firma.Data.Data.CMS.ZdjecieGaleria>
+
+<div class="row my-5 py-4" id="galeria">
+    <div class="container text-center">
+        <h2 class="mb-5">Galeria naszych wypieków</h2>
+        <div class="row g-4">
+        @foreach (var item in Model)
+        {
+                <div class="col-md-4 gallery-item">
+                    <img src=@item.AdresURL alt=@item.Nazwa class="img-fluid product-img">
+                </div>
+        }
+        </div>
+    </div>
+</div>

@@ -10,7 +10,7 @@
     <div>
        @Model.Tresc
     </div>
-    <dic class="row my-5 py-5 bakery-rose-background">
+    <div class="row my-5 py-5 bakery-rose-background">
         <div class="col">
             <h2 class="text-center mb-5">Dlaczego warto nas wybrać?</h2>
             <div class="row text-center g-4">
@@ -31,38 +31,14 @@
                 </div>
             </div>
         </div>
-    </dic>
-
-    <div class="row my-5 py-5" id="galeria">
-        <div class="container text-center">
-            <h2 class="mb-4">Galeria naszych wypieków</h2>
-            <div class="row g-4">
-                <div class="col-md-4 gallery-item">
-                    <img src="~/content/ciastka.jpg" alt="Ciastka" class="img-fluid">
-                </div>
-                <div class="col-md-4 gallery-item">
-                    <img src="~/content/tort.jpg" alt="Tort" class="img-fluid">
-                </div>
-                <div class="col-md-4 gallery-item">
-                    <img src="~/content/bezy.png" alt="Bezy" class="img-fluid">
-                </div>
-                <div class="col-md-4 gallery-item">
-                    <img src="~/content/ciastka.jpg" alt="Ciastka" class="img-fluid">
-                </div>
-                <div class="col-md-4 gallery-item">
-                    <img src="~/content/bezy.png" alt="Bezy" class="img-fluid">
-                </div>
-                <div class="col-md-4 gallery-item">
-                    <img src="~/content/tort.jpg" alt="Tort" class="img-fluid">
-                </div>
-            </div>
-        </div>
     </div>
+
+    @await Html.PartialAsync("Galeria", (IEnumerable<Firma.Data.Data.CMS.ZdjecieGaleria>)ViewBag.ModelGaleria)
 
     <div class="row my-5 py-5 text-center bakery-rose-background">
         <div class="col">
         <h3 class="mb-3">Masz ochotę na coś słodkiego?</h3>
-            <a class="btn btn-lg" asp-area="" asp-controller="Home" asp-action="Kontakt">Skontaktuj się z nami</a>
+            <a class="btn btn-lg">Skontaktuj się z nami</a>
         </div>
     </div>
 

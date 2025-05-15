@@ -18,20 +18,29 @@ namespace Firma.PortalWWW.Controllers
 
         public async Task<IActionResult> Index(int? id)
         {
-            ViewBag.ModelStrony = await _context.Strona.OrderBy(s => s.Pozycja).ToListAsync();
+            ViewBag.ModelStrony = await _context.Strona
+                .OrderBy(s => s.Pozycja)
+                .ToListAsync();
 
-            ViewBag.ModelAktualnosci =
-            (
-                from aktualnosc in _context.Aktualnosc
-                orderby aktualnosc.Pozycja descending 
-                select aktualnosc
-            ).ToList();
+            ViewBag.ModelAktualnosci = await _context.Aktualnosc
+                .OrderByDescending(a => a.Pozycja)
+                .ToListAsync();
+
+            ViewBag.ModelGaleria = await _context.ZdjecieGaleria
+                .OrderByDescending(z => z.Pozycja)
+                .Take(6)
+                .ToListAsync();
+
+            ViewBag.ModelCukiernia = await _context.Cukiernia
+                .OrderByDescending(c => c.IdCukierni)
+                .ToListAsync();
+
             if (id == null)
             {
                 id = 1;
             }
             var item = await _context.Strona.FindAsync(id);
-            
+
             return View(item);
         }
 

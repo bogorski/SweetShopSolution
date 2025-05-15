@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Firma.Data.Data.Sklep.Cukiernia>
+
+<div class="container ">
+    <div class="row m-5">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-6">
+                <div class="card">
+                    <img src=@item.AdresURL alt=@item.Nazwa class="shop-img">
+                    <div class="mt-2">
+                        <h3>@item.Nazwa</h3>
+                        <p class="mb-0">@item.Adres</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@item.Opis</p>
+
+                        <div class="mb-3">
+                            <p><strong>@item.Telefon</strong></p>
+                            <p>@item.Email</p>
+                        </div>
+
+                        <h5>Godziny otwarcia:</h5>
+                        <div>
+                            <p class="mb-1">@item.GodzinyOtwarcia</p>
+                        </div>
+
+                        <div class="mt-3">
+                            <iframe src=@item.IFrameGoogleMap width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

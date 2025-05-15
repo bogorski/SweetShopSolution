@@ -144,6 +144,18 @@ header {
     background-color: #FFE0E0;
 }
 
+.dropdown-menu {
+    background-color: #FFE0E0 !important;
+}
+
+    .dropdown-menu a {
+        color: #8B5151 !important;
+    }
+
+        .dropdown-menu a:hover {
+            color: #3B4B54 !important;
+        }
+
 footer {
     line-height: 30px !important;
 }

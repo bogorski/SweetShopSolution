@@ -21,13 +21,13 @@
             @* </ul> *@
         </div>
     </div>
-<div class="row g-3">
-    @foreach (var item in Model)
-    {
+    <div class="row g-3">
+        @foreach (var item in Model)
+        {
             <div class="col-lg-4 col-md-6 col-12 my-3">
                 <div class="card product-card h-100 border border-1">
                     <img src="@(string.IsNullOrEmpty(item.AdresURL) ? "https://x13.pl/img/cms/blog/zmiana-zdjecia/nowe_zdjecie.jpg" : item.AdresURL)"
-                         class="card-img-top product-img" 
+                         class="card-img-top product-img"
                          alt=@item.Nazwa
                          onerror="this.onerror=null; this.src='https://x13.pl/img/cms/blog/zmiana-zdjecia/nowe_zdjecie.jpg';">
                     <div class="card-body my-3">
@@ -47,7 +47,7 @@
                     </div>
                 </div>
             </div>
-    }
-</div>
+        }
+    </div>
 </div>
 
