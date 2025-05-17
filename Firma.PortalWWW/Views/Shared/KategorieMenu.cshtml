@@ -6,11 +6,11 @@
         @foreach (var item in Model)
         {
             <li class="nav-item">
-                <a class="nav-link" asp-area="" asp-controller="Sklep" asp-action="Index" asp-route-id="@item.IdKategorii">@item.Nazwa</a>
+                <a class="nav-link nav-link-large" asp-area="" asp-controller="Sklep" asp-action="Index" asp-route-id="@item.IdKategorii">@item.Nazwa</a>
             </li>
         }
         <li class="nav-item">
-            <a class="nav-link" asp-area="" asp-controller="Sklep" asp-action="Index" asp-route-id="">Cały asortyment</a>
+            <a class="nav-link nav-link-large" asp-area="" asp-controller="Sklep" asp-action="Index" asp-route-id="">Cały asortyment</a>
         </li>
     </ul>
 </div>

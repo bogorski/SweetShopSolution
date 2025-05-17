@@ -19,7 +19,22 @@
                 <a class="navbar-brand d-none d-md-block mx-auto mx-md-0" href="/">
                      <img src="~/content/logo.svg" class="logo" alt="Logo"> 
                 </a>
-                @await Html.PartialAsync("Odnosniki", (IEnumerable<Firma.Data.Data.CMS.Strona>)ViewBag.ModelStrony)
+                <div class="navbar-collapse collapse d-md-flex justify-content-between w-100" id="navbarNav">
+                    <ul class="navbar-nav me-auto d-flex justify-content-evenly w-100">
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-large" asp-area="" asp-controller="Sklep" asp-action="Index">Sklep</a>
+                        </li>
+                        <li class="nav-item"> 
+                            <a class="nav-link nav-link-large" asp-area="" asp-controller="Home" asp-action="Cukiernie">Cukiernie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-large" asp-area="" asp-controller="Home" asp-action="Skladniki">Składniki</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-large" asp-area="" asp-controller="Home" asp-action="Kontakt">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -28,7 +43,7 @@
         @RenderBody()
     </main>
 </div>
-@await Html.PartialAsync("Cukiernie", (IEnumerable<Firma.Data.Data.Sklep.Cukiernia>)ViewBag.ModelCukiernia)
+@* @await Html.PartialAsync("Cukiernie", (IEnumerable<Firma.Data.Data.Sklep.Cukiernia>)ViewBag.ModelCukiernia) *@
     @await Html.PartialAsync("Footer")
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

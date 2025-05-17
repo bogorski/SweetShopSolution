@@ -4,10 +4,10 @@
     <div class="row m-5">
         @foreach (var item in Model)
         {
-            <div class="col-md-6">
-                <div class="card">
+            <div class="col-md-6 mb-5 p-3">
+                <div class="card border border-1">
                     <img src=@item.AdresURL alt=@item.Nazwa class="shop-img">
-                    <div class="mt-2">
+                    <div class="m-2">
                         <h3>@item.Nazwa</h3>
                         <p class="mb-0">@item.Adres</p>
                     </div>

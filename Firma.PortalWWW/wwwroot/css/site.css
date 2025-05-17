@@ -50,6 +50,11 @@ textarea:focus {
     height: 450px;
     object-fit: cover;
 }
+.ingredient-img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
 
 select:focus {
     background-color: white;
@@ -148,6 +153,10 @@ header {
 .navbar-toggler-icon:focus {
     outline: none;
     box-shadow: none;
+}
+
+.nav-link-large {
+    font-size: 1.1rem;
 }
 
 .logo {

@@ -7,24 +7,21 @@
     <div class="row my-5 py-5">
         @await Html.PartialAsync("Aktualnosci", (IEnumerable<Firma.Data.Data.CMS.Aktualnosc>)ViewBag.ModelAktualnosci)
     </div>
-    <div>
-       @Model.Tresc
-    </div>
     <div class="row my-5 py-5 bakery-rose-background">
         <div class="col">
-            <h2 class="text-center mb-5">Dlaczego warto nas wybrać?</h2>
-            <div class="row text-center g-4">
-                <div class="col-md-4">
+            <h2 class="text-center fw-bold my-3">Dlaczego warto nas wybrać?</h2>
+            <div class="row text-center g-4 my-3">
+                <div class="col-md-4 my-3">
                     <div class="feature-icon text-primary">🎂</div>
                     <h5>Ręcznie robione wypieki</h5>
                     <p>Każdy produkt tworzony jest z sercem – jak w domu!</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 my-3">
                     <div class="feature-icon text-success">📦</div>
                     <h5>Możliwość zamówień online</h5>
                     <p>Wygodna platforma do zamówień przez internet.</p>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 my-3">
                     <div class="feature-icon text-danger">⭐</div>
                     <h5>Najwyższa jakość składników</h5>
                     <p>Używamy tylko sprawdzonych i naturalnych produktów.</p>
@@ -35,23 +32,32 @@
 
     @await Html.PartialAsync("Galeria", (IEnumerable<Firma.Data.Data.CMS.ZdjecieGaleria>)ViewBag.ModelGaleria)
 
-    <div class="row my-5 py-5 text-center bakery-rose-background">
+    <div class="row my-5 py-5 text-center bakery-rose-background rounded-4 shadow-sm">
         <div class="col">
-        <h3 class="mb-3">Masz ochotę na coś słodkiego?</h3>
-            <a class="btn btn-lg">Skontaktuj się z nami</a>
+            <h2 class="mb-5 fw-bold">Masz ochotę na coś słodkiego?</h2>
+            <a href="/kontakt" class="btn btn-lg px-4 py-2 shadow-sm">
+                Skontaktuj się z nami
+            </a>
         </div>
     </div>
 
-    <div class="row my-5 py-5">
-        <div class="col-12 col-xl-6">
-            <img src="~/content/macarons.jpg" alt="Macarons" class="img-fluid ">
+    <div class="row my-5 py-5 align-items-center">
+        <div class="col-12 col-xl-6 mb-4 mb-xl-0">
+            <img src="~/content/macarons.jpg" alt="Macarons" class="img-fluid rounded shadow" />
         </div>
-        <div class="col-12 col-xl-6 mt-3 mt-xl-0">
-            <h4>Historia firmy</h4>
-            <h5>Tradycyjne receptury, naturalne składniki, niezapomniane smaki.</h5>
-            <p>"Sweet Shop" to rodzinnie prowadzona cukiernia, której początki sięgają lat dzieciństwa założyciela, Marka. Marek od najmłodszych lat fascynował się sztuką cukierniczą, inspirując się smakami i aromatami, które tworzył razem z matką w kuchni swojego domu.</p>
-            <p>Kiedy Marek dorósł, postanowił podzielić się swoją pasją i wyjątkowymi wypiekami z innymi. Wraz z żoną Ewą, która dzieliła jego zamiłowanie do cukiernictwa, otworzyli własny sklep ze słodyczami - "Sweet Shop".</p>
-            <p>Od samego początku "Sweet Shop" przyciągało uwagę mieszkańców swoim wyjątkowym urokiem i bogactwem smaków. Markowi i Ewie zależało na tworzeniu słodkości, które nie tylko smakują wyśmienicie, ale także wywołują uśmiech na twarzach klientów.</p>
+
+        <div class="col-12 col-xl-6">
+            <h2 class="fw-bold mb-3">Historia firmy</h2>
+            <h5 class="text-muted mb-4">Tradycyjne receptury, naturalne składniki, niezapomniane smaki.</h5>
+            <p class="mb-3">
+                <strong>"Sweet Shop"</strong> to rodzinnie prowadzona cukiernia, której początki sięgają lat dzieciństwa założyciela, Marka. Marek od najmłodszych lat fascynował się sztuką cukierniczą, inspirując się smakami i aromatami, które tworzył razem z matką w kuchni swojego domu.
+            </p>
+            <p class="mb-3">
+                Kiedy Marek dorósł postanowił podzielić się swoją pasją i wyjątkowymi wypiekami z innymi. Wraz z żoną Ewą, która dzieliła jego zamiłowanie do cukiernictwa, otworzyli własny sklep ze słodyczami — <strong>"Sweet Shop"</strong>.
+            </p>
+            <p>
+                Od samego początku "Sweet Shop" przyciągało uwagę mieszkańców swoim wyjątkowym urokiem i bogactwem smaków. Markowi i Ewie zależało na tworzeniu słodkości, które nie tylko smakują wyśmienicie, ale także wywołują uśmiech na twarzach klientów.
+            </p>
         </div>
     </div>
 </div>

@@ -44,19 +44,16 @@ namespace Firma.PortalWWW.Controllers
             return View(item);
         }
 
-        public IActionResult Cukiernie()
+        public async Task<IActionResult> Cukiernie()
         {
-            return View();
+            var cukiernie = await _context.Cukiernia.ToListAsync();
+            return View(cukiernie);
         }
 
-        public IActionResult Kategorie()
+        public async Task<IActionResult> Skladniki()
         {
-            return View();
-        }
-
-        public IActionResult Sklep()
-        {
-            return View();
+            var skladniki = await _context.Skladnik.ToListAsync();
+            return View(skladniki);
         }
 
         public IActionResult Kontakt()
