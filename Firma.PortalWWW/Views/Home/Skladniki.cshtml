@@ -1,17 +1,15 @@
-﻿@model IEnumerable<Firma.Data.Data.Sklep.Skladnik>
-
-<div class="container ">
-    <div class="row mt-5">
+﻿<div class="container my-5">
+    <div class="d-flex flex-wrap justify-content-center gap-4">
         @foreach (var item in Model)
         {
-            <div class="col-md-3 mb-3 p-1">
-                <div class="card border border-1">
-                    <img src=@item.AdresURL alt=@item.Nazwa class="ingredient-img">
-                    <div class="m-2">
-                        <h3>@item.Nazwa</h3>
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="card-front">
+                        <img src="@item.AdresURL" alt="@item.Nazwa" />
+                        <h5>@item.Nazwa</h5>
                     </div>
-                    <div class="card-body">
-                        <p class="card-text">Jednostka: @item.Jednostka</p>
+                    <div class="card-back">
+                        <p>@item.Opis</p>
                     </div>
                 </div>
             </div>

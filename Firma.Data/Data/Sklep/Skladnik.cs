@@ -18,6 +18,11 @@ namespace Firma.Data.Data.Sklep
         [Display(Name = "Jednostka")]
         public required string Jednostka { get; set; }
 
+        [Required(ErrorMessage = "Opis jest wymagany.")]
+        [Column(TypeName = "nvarchar(MAX)")]
+        [Display(Name = "Opis")]
+        public required string Opis { get; set; }
+
         [Column(TypeName = "nvarchar(200)")]
         [Display(Name = "Adres URL")]
         public string? AdresURL { get; set; }
