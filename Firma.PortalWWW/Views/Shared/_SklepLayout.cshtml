@@ -19,7 +19,8 @@
                 <a class="navbar-brand d-none d-md-block mx-auto mx-md-0" href="/">
                     <img src="~/content/logo.svg" class="logo" alt="Logo">
                 </a>
-                @await Html.PartialAsync("KategorieMenu", (IEnumerable<Firma.Data.Data.Sklep.Kategoria>)ViewBag.ModelKategorie)
+                @* @await Html.PartialAsync("KategorieMenu", (IEnumerable<Firma.Data.Data.Sklep.Kategoria>)ViewBag.ModelKategorie) *@
+                @await Component.InvokeAsync("KategorieMenuComponent")
             </div>
         </nav>
     </header>

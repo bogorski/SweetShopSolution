@@ -7,7 +7,7 @@
 <div class="container m-5">
     <div class="row mb-2">
         <div class="col-12 text-center mb-2">
-            <h1 class=" section-title mb-5">Nasze produkty</h1>
+            <p class=" section-title mb-5 h1">Nasze produkty</p>
         </div>
         <div class="col-12">
             @* <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown"> *@
@@ -24,26 +24,20 @@
     <div class="row g-3">
         @foreach (var item in Model)
         {
-            <div class="col-lg-4 col-md-6 col-12 my-3">
-                <div class="card product-card h-100 border border-1">
+            <div class="col-lg-4 col-md-6 col-12 my-3 ">
+                <div class="card product-card h-100 border border-1 text-center">
                     <img src="@(string.IsNullOrEmpty(item.AdresURL) ? "https://x13.pl/img/cms/blog/zmiana-zdjecia/nowe_zdjecie.jpg" : item.AdresURL)"
                          class="card-img-top product-img"
                          alt=@item.Nazwa
                          onerror="this.onerror=null; this.src='https://x13.pl/img/cms/blog/zmiana-zdjecia/nowe_zdjecie.jpg';">
-                    <div class="card-body my-3">
-                        <h5 class="card-title">@item.Nazwa</h5>
+                    <div class="card-body my-4">
+                        <p class="card-title mb-3 h4">@item.Nazwa</p>
                         <p class="card-text">@item.Opis</p>
-                        <div class="d-flex justify-content-between align-items-center my-2">
-                            <h4 class="my-3">@item.Cena.ToString("#,##0.00") zł</h4>
-                            <div class="input-group input-group-sm my-3" style="width: 120px;">
-                                <button class="btn btn-outline-secondary" type="button">-</button>
-                                <input type="text" class="form-control quantity-input text-center" value="1">
-                                <button class="btn btn-outline-secondary" type="button">+</button>
-                            </div>
-                        </div>
+                        <p class="mt-5 h4">od @item.Cena.ToString("#,##0.00") zł</p>
                     </div>
                     <div class="card-footer bg-white border-0 mb-3">
-                        <button class="btn btn-primary w-100">Dodaj do koszyka</button>
+                        <a class="btn btn-primary w-75" asp-route-id="@item.IdProduktu" asp-action="Szczegoly">Wybierz opcje</a>
+                        @* <button class="btn btn-primary w-75">Wybierz opcje</button> *@
                     </div>
                 </div>
             </div>

@@ -13,7 +13,7 @@ namespace Firma.PortalWWW.Controllers
         }
         public async Task<IActionResult> Index(int? id)
         {
-            ViewBag.ModelKategorie = await _context.Kategoria.ToListAsync();
+            //ViewBag.ModelKategorie = await _context.Kategoria.ToListAsync();
 
             if (id == null)
             {
@@ -23,6 +23,12 @@ namespace Firma.PortalWWW.Controllers
             var produktyDanejKategorii = await _context.Produkt.Where(p => p.IdKategorii == id).ToListAsync();
             
             return View(produktyDanejKategorii);
+        }
+        public async Task<IActionResult> Szczegoly(int id)
+        {
+            //ViewBag.ModelKategorie = await _context.Kategoria.ToListAsync();
+
+            return View(await _context.Produkt.Where(p => p.IdProduktu == id).FirstOrDefaultAsync());
         }
 
     }
