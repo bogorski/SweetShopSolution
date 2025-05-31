@@ -1,15 +1,18 @@
 ﻿using Firma.Data.Data;
+using Firma.PortalWWW;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-builder.Services.AddControllersWithViews();
-
 builder.Services.AddDbContext<FirmaContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("FirmaContext")
                          ?? throw new InvalidOperationException("Connection string 'FirmaContext' not found.")));
+
+DependencyInjectionFactory.Resolve(builder.Services, builder.Configuration);
+
+// Add services to the container.
+builder.Services.AddControllersWithViews();
 
 // Dodaj Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()

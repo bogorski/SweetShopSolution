@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Firma.Data.Data;
 using Firma.PortalWWW.Models;
+using Firma.Interfaces.CMS;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,10 +11,12 @@ namespace Firma.PortalWWW.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly FirmaContext _context;
-        public HomeController(ILogger<HomeController> logger, FirmaContext firmaContext)
+        private readonly IAktualnoscService _aktualnoscService;
+        public HomeController(ILogger<HomeController> logger, FirmaContext firmaContext, IAktualnoscService aktualnoscService)
         {
             _logger = logger;
             _context = firmaContext;
+            _aktualnoscService = aktualnoscService;
         }
 
         public async Task<IActionResult> Index(int? id)
@@ -22,9 +25,11 @@ namespace Firma.PortalWWW.Controllers
                 .OrderBy(s => s.Pozycja)
                 .ToListAsync();
 
-            ViewBag.ModelAktualnosci = await _context.Aktualnosc
-                .OrderByDescending(a => a.Pozycja)
-                .ToListAsync();
+            //ViewBag.ModelAktualnosci = await _context.Aktualnosc
+            //    .OrderByDescending(a => a.Pozycja)
+            //    .ToListAsync();
+
+            ViewBag.ModelAktualnosci = await _aktualnoscService.GetAktualnoscByPozycjaTake(4);
 
             ViewBag.ModelGaleria = await _context.ZdjecieGaleria
                 .OrderByDescending(z => z.Pozycja)
