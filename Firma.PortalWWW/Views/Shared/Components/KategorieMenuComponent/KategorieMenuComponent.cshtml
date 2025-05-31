@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Firma.Data.Data.Sklep.Kategoria>
+
+<div class="collapse navbar-collapse ms-5" id="navbarNav">
+    <ul class="navbar-nav me-auto">
+        @foreach (var item in Model)
+        {
+            <li class="nav-item mx-3">
+                <a class="nav-link nav-link-large" asp-area="" asp-controller="Sklep" asp-action="Index" asp-route-id="@item.IdKategorii">@item.Nazwa</a>
+            </li>
+        }
+        <li class="nav-item">
+            <a class="nav-link nav-link-large" asp-area="" asp-controller="Sklep" asp-action="Index" asp-route-id="">Cały asortyment</a>
+        </li>
+    </ul>
+    <ul class="navbar-nav ms-auto">
+        @if (User.Identity?.IsAuthenticated ?? false)
+        {
+            <li class="nav-item mx-3 d-flex align-items-center">
+                <a class="nav-link nav-link-large" asp-controller="Koszyk" asp-action="Index" title="Koszyk">
+                    <i class="bi bi-basket-fill fs-4"></i>
+                </a>
+            </li>
+            <li class="nav-item dropdown mx-3 d-flex align-items-center">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    @User.Identity.Name
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                    <li>
+                        <a class="dropdown-item" asp-controller="Account" asp-action="Edit">Edytuj konto</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                        <form method="post" asp-controller="Account" asp-action="Logout" id="logoutForm">
+                            <button type="submit" class="dropdown-item">Wyloguj się</button>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item mx-3">
+                <a class="nav-link nav-link-large" asp-controller="Account" asp-action="Login">Zaloguj się</a>
+            </li>
+            <li class="nav-item mx-3">
+                <a class="nav-link nav-link-large" asp-controller="Account" asp-action="Register">Zarejestruj się</a>
+            </li>
+        }
+    </ul>
+</div>

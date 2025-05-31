@@ -100,7 +100,9 @@ select:focus {
 .rusty-background {
     background-color: #8B5151;
 }
-
+.rusty-color {
+    color: #8B5151;
+}
 .misty-rose-background {
     background-color: #F7DAD9;
 }
@@ -235,6 +237,13 @@ thead {
     border-color: #8B5151;
 }
 
+tfoot td {
+    background-color: #F7DAD9 !important;
+    color: #8B5151 !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 .flip-card {
     width: 18rem;
     height: 24rem;
@@ -288,4 +297,8 @@ thead {
     font-size: 1rem;
     line-height: 1.3;
     padding: 1.5rem;
+}
+
+.text-primary {
+    color: #8B5151 !important;
 }

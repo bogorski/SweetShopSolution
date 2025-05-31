@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Firma.Data.Data.Sklep
 {
@@ -6,6 +8,10 @@ namespace Firma.Data.Data.Sklep
     {
         [Key]
         public int IdKlienta { get; set; }
+
+        [ForeignKey("Uzytkownik")]
+        public string IdentityUserId { get; set; } = null!;
+        public IdentityUser? Uzytkownik { get; set; }
 
         [Required(ErrorMessage = "Imię jest wymagane.")]
         [MaxLength(50, ErrorMessage = "Imię może zawierać maksymalnie 50 znaków.")]
@@ -39,7 +45,9 @@ namespace Firma.Data.Data.Sklep
         public DateTime DataRejestracji { get; set; }
 
         public ICollection<Zamowienie> Zamowienia { get; set; } = new List<Zamowienie>();
+        public ICollection<Koszyk> Koszyki { get; set; } = new List<Koszyk>();
 
+        [NotMapped]
         public string ImieINazwisko
         {
             get => $"{Imie} {Nazwisko}";

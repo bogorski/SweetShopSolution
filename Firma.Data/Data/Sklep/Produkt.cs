@@ -35,5 +35,7 @@ namespace Firma.Data.Data.Sklep
         public int IdKategorii { get; set; }
         public Kategoria? Kategoria { get; set; }
         public ICollection<ProduktSkladnik> ProduktSkladniki { get; set; } = new List<ProduktSkladnik>();
+        public ICollection<Koszyk> Koszyki { get; set; } = new List<Koszyk>();
+        public ICollection<ZamowieniePozycja> ZamowieniePozycje { get; set; } = new List<ZamowieniePozycja>();
     }
 }

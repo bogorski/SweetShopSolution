@@ -4,6 +4,7 @@ using Firma.Data.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Firma.Data.Migrations
 {
     [DbContext(typeof(FirmaContext))]
-    partial class FirmaContextModelSnapshot : ModelSnapshot
+    [Migration("20250531064320_AddCartItemTable")]
+    partial class AddCartItemTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -199,10 +202,6 @@ namespace Firma.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("IdentityUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Imie")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -219,8 +218,6 @@ namespace Firma.Data.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.HasKey("IdKlienta");
-
-                    b.HasIndex("IdentityUserId");
 
                     b.ToTable("Klient");
                 });
@@ -425,7 +422,7 @@ namespace Firma.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdZamowieniePozycja"));
 
-                    b.Property<decimal>("Cena")
+                    b.Property<decimal>("CenaJednostkowa")
                         .HasColumnType("money");
 
                     b.Property<int>("IdProduktu")
@@ -642,17 +639,6 @@ namespace Firma.Data.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("Firma.Data.Data.Sklep.Klient", b =>
-                {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Uzytkownik")
-                        .WithMany()
-                        .HasForeignKey("IdentityUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Uzytkownik");
                 });
 
             modelBuilder.Entity("Firma.Data.Data.Sklep.Koszyk", b =>

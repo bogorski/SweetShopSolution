@@ -4,6 +4,7 @@ using Firma.Data.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Firma.Data.Migrations
 {
     [DbContext(typeof(FirmaContext))]
-    partial class FirmaContextModelSnapshot : ModelSnapshot
+    [Migration("20250531105603_UpdateZamowieniePozycja")]
+    partial class UpdateZamowieniePozycja
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -437,11 +440,16 @@ namespace Firma.Data.Migrations
                     b.Property<int>("Ilosc")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ZamowieniePozycjaIdZamowieniePozycja")
+                        .HasColumnType("int");
+
                     b.HasKey("IdZamowieniePozycja");
 
                     b.HasIndex("IdProduktu");
 
                     b.HasIndex("IdZamowienia");
+
+                    b.HasIndex("ZamowieniePozycjaIdZamowieniePozycja");
 
                     b.ToTable("ZamowieniePozycja");
                 });
@@ -740,6 +748,10 @@ namespace Firma.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Firma.Data.Data.Sklep.ZamowieniePozycja", null)
+                        .WithMany("ZamowieniePozycje")
+                        .HasForeignKey("ZamowieniePozycjaIdZamowieniePozycja");
+
                     b.Navigation("Produkt");
 
                     b.Navigation("Zamowienie");
@@ -825,6 +837,11 @@ namespace Firma.Data.Migrations
             modelBuilder.Entity("Firma.Data.Data.Sklep.Zamowienie", b =>
                 {
                     b.Navigation("ZamowieniePozycja");
+                });
+
+            modelBuilder.Entity("Firma.Data.Data.Sklep.ZamowieniePozycja", b =>
+                {
+                    b.Navigation("ZamowieniePozycje");
                 });
 #pragma warning restore 612, 618
         }

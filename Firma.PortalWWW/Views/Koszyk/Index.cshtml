@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Firma.Data.Data.Sklep.Koszyk>
+@{
+    ViewData["Title"] = "Twój koszyk";
+    Layout = "~/Views/Shared/_SklepLayout.cshtml";
+}
+
+<div class="container my-5">
+    <p class="text-center mb-5 h1 section-title">Twój koszyk</p>
+
+    @if (!Model.Any())
+    {
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <p class="text-center text-muted h4">Nic tu nie ma</p>
+                <p class="text-center text-muted">Wróć do sklepy i dodaj produkty do koszyka</p>
+                <div class="text-center mt-5">
+                    <a asp-controller="Sklep" asp-action="Index" class="btn btn-primary">
+                        Powrót do sklepu
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <div class="card shadow-sm mb-5">
+                    <div class="card-body p-0">
+                        <table class="table table-borderless mb-0">
+                            <thead class="header">
+                                <tr>
+                                    <th>Produkt</th>
+                                    <th style="width: 120px;">Ilość</th>
+                                    <th>Cena jedn.</th>
+                                    <th>Razem</th>
+                                    <th>Akcje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var pozycja in Model)
+                                {
+                                    <tr>
+                                        <td>@pozycja.Produkt.Nazwa</td>
+                                        <td>
+                                            <form method="post" asp-action="ZmienIlosc" asp-route-id="@pozycja.IdKoszyka" class="d-inline">
+                                                <input type="number"
+                                                       name="ilosc"
+                                                       value="@pozycja.Ilosc"
+                                                       min="1"
+                                                       class="form-control w-75"
+                                                       onchange="this.form.submit();"/>
+                                            </form>
+                                        </td>
+                                        <td>@pozycja.Produkt.Cena.ToString("C")</td>
+                                        <td class="fw-bold">@((pozycja.Ilosc * pozycja.Produkt.Cena).ToString("C"))</td>
+                                        <td>
+                                            <form method="post" asp-action="Usun" asp-route-id="@pozycja.IdKoszyka" onsubmit="return confirm('Na pewno chcesz usunąć?');" class="d-inline">
+                                                <button type="submit" class="btn btn-sm">Usuń</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="3" class="text-end fw-bold text-primary">Razem:</td>
+                                    <td class="fw-bold">@Model.Sum(p => p.Ilosc * p.Produkt.Cena).ToString("C2")</td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="text-center my-4">
+                    <form method="post" asp-action="ZlozZamowienie">
+                        <button type="submit" class="btn btn-primary px-4 py-2">
+                            Złóż zamówienie
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

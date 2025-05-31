@@ -23,5 +23,7 @@ namespace Firma.Data.Data
         public DbSet<ProduktSkladnik> ProduktSkladnik { get; set; } = default!;
         public DbSet<Skladnik> Skladnik { get; set; } = default!;
         public DbSet<Reklamacja> Reklamacja { get; set; } = default!;
+        public DbSet<Koszyk> Koszyk { get; set; } = default!;
+        public DbSet<ZamowieniePozycja> ZamowieniePozycja { get; set; } = default!;
     }
 }

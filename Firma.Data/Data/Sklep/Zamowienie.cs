@@ -31,13 +31,14 @@ namespace Firma.Data.Data.Sklep
         [Display(Name = "Data odbioru")]
         public DateTime DataOdbioru { get; set; }
 
-        [Required(ErrorMessage = "Uwagi są wymagane.")]
         [MaxLength(300, ErrorMessage = "Uwagi mogą zawierać maksymalnie 300 znaków.")]
         [Display(Name = "Uwagi")]
         public string? Uwagi { get; set; }
 
         [ForeignKey("Klient")]
         public int IdKlienta { get; set; }
-        public  Klient? Klient { get; set; }
+        public Klient? Klient { get; set; }
+
+        public ICollection<ZamowieniePozycja> ZamowieniePozycja { get; set; } = new List<ZamowieniePozycja>();
     }
 }

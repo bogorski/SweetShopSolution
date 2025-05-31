@@ -4,6 +4,13 @@
 }
 
 <div class="container">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
     <div class="row my-5 py-5">
         @await Html.PartialAsync("Aktualnosci", (IEnumerable<Firma.Data.Data.CMS.Aktualnosc>)ViewBag.ModelAktualnosci)
     </div>
@@ -43,7 +50,7 @@
 
     <div class="row my-5 py-5 align-items-center">
         <div class="col-12 col-xl-6 mb-4 mb-xl-0">
-            <img src="~/content/macarons.jpg" alt="Macarons" class="img-fluid rounded shadow" />
+            <img src="~/content/macarons.jpg" alt="Macarons" class="img-fluid rounded shadow"/>
         </div>
 
         <div class="col-12 col-xl-6">

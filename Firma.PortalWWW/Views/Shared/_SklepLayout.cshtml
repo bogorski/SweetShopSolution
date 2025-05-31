@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Sklep"] - Firma.PortalWWW</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Firma.PortalWWW.styles.css" asp-append-version="true" />
 </head>
@@ -19,7 +20,6 @@
                 <a class="navbar-brand d-none d-md-block mx-auto mx-md-0" href="/">
                     <img src="~/content/logo.svg" class="logo" alt="Logo">
                 </a>
-                @* @await Html.PartialAsync("KategorieMenu", (IEnumerable<Firma.Data.Data.Sklep.Kategoria>)ViewBag.ModelKategorie) *@
                 @await Component.InvokeAsync("KategorieMenuComponent")
             </div>
         </nav>
