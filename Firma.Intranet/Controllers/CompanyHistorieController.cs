@@ -6,27 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Firma.Data.Data;
-using Firma.Data.Data.Sklep;
+using Firma.Data.Data.CMS;
 
 namespace Firma.Intranet.Controllers
 {
-    public class ZamowienieController : Controller
+    public class CompanyHistorieController : Controller
     {
         private readonly FirmaContext _context;
 
-        public ZamowienieController(FirmaContext context)
+        public CompanyHistorieController(FirmaContext context)
         {
             _context = context;
         }
 
-        // GET: Zamowienie
+        // GET: CompanyHistorie
         public async Task<IActionResult> Index()
         {
-            var firmaIntranetContext = _context.Zamowienie.Include(z => z.Klient);
-            return View(await firmaIntranetContext.ToListAsync());
+            return View(await _context.CompanyHistory.ToListAsync());
         }
 
-        // GET: Zamowienie/Details/5
+        // GET: CompanyHistorie/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,42 +33,39 @@ namespace Firma.Intranet.Controllers
                 return NotFound();
             }
 
-            var zamowienie = await _context.Zamowienie
-                .Include(z => z.Klient)
-                .FirstOrDefaultAsync(m => m.IdZamowienia == id);
-            if (zamowienie == null)
+            var companyHistory = await _context.CompanyHistory
+                .FirstOrDefaultAsync(m => m.IdCompanyHistory == id);
+            if (companyHistory == null)
             {
                 return NotFound();
             }
 
-            return View(zamowienie);
+            return View(companyHistory);
         }
 
-        // GET: Zamowienie/Create
+        // GET: CompanyHistorie/Create
         public IActionResult Create()
         {
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko");
             return View();
         }
 
-        // POST: Zamowienie/Create
+        // POST: CompanyHistorie/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdZamowienia,Numer,Kwota,Status,DataZamowienia,DataOdbioru,Uwagi,IdKlienta")] Zamowienie zamowienie)
+        public async Task<IActionResult> Create([Bind("IdCompanyHistory,Header,Contents,AdresURL,CreatedAt,UpdatedAt")] CompanyHistory companyHistory)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(zamowienie);
+                _context.Add(companyHistory);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko", zamowienie.IdKlienta);
-            return View(zamowienie);
+            return View(companyHistory);
         }
 
-        // GET: Zamowienie/Edit/5
+        // GET: CompanyHistorie/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,23 +73,22 @@ namespace Firma.Intranet.Controllers
                 return NotFound();
             }
 
-            var zamowienie = await _context.Zamowienie.FindAsync(id);
-            if (zamowienie == null)
+            var companyHistory = await _context.CompanyHistory.FindAsync(id);
+            if (companyHistory == null)
             {
                 return NotFound();
             }
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko", zamowienie.IdKlienta);
-            return View(zamowienie);
+            return View(companyHistory);
         }
 
-        // POST: Zamowienie/Edit/5
+        // POST: CompanyHistorie/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdZamowienia,Numer,Kwota,Status,DataZamowienia,DataOdbioru,Uwagi,IdKlienta")] Zamowienie zamowienie)
+        public async Task<IActionResult> Edit(int id, [Bind("IdCompanyHistory,Header,Contents,AdresURL,CreatedAt,UpdatedAt")] CompanyHistory companyHistory)
         {
-            if (id != zamowienie.IdZamowienia)
+            if (id != companyHistory.IdCompanyHistory)
             {
                 return NotFound();
             }
@@ -102,12 +97,12 @@ namespace Firma.Intranet.Controllers
             {
                 try
                 {
-                    _context.Update(zamowienie);
+                    _context.Update(companyHistory);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ZamowienieExists(zamowienie.IdZamowienia))
+                    if (!CompanyHistoryExists(companyHistory.IdCompanyHistory))
                     {
                         return NotFound();
                     }
@@ -118,11 +113,10 @@ namespace Firma.Intranet.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko", zamowienie.IdKlienta);
-            return View(zamowienie);
+            return View(companyHistory);
         }
 
-        // GET: Zamowienie/Delete/5
+        // GET: CompanyHistorie/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,35 +124,34 @@ namespace Firma.Intranet.Controllers
                 return NotFound();
             }
 
-            var zamowienie = await _context.Zamowienie
-                .Include(z => z.Klient)
-                .FirstOrDefaultAsync(m => m.IdZamowienia == id);
-            if (zamowienie == null)
+            var companyHistory = await _context.CompanyHistory
+                .FirstOrDefaultAsync(m => m.IdCompanyHistory == id);
+            if (companyHistory == null)
             {
                 return NotFound();
             }
 
-            return View(zamowienie);
+            return View(companyHistory);
         }
 
-        // POST: Zamowienie/Delete/5
+        // POST: CompanyHistorie/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var zamowienie = await _context.Zamowienie.FindAsync(id);
-            if (zamowienie != null)
+            var companyHistory = await _context.CompanyHistory.FindAsync(id);
+            if (companyHistory != null)
             {
-                _context.Zamowienie.Remove(zamowienie);
+                _context.CompanyHistory.Remove(companyHistory);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ZamowienieExists(int id)
+        private bool CompanyHistoryExists(int id)
         {
-            return _context.Zamowienie.Any(e => e.IdZamowienia == id);
+            return _context.CompanyHistory.Any(e => e.IdCompanyHistory == id);
         }
     }
 }

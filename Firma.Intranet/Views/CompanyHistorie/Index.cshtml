@@ -1,23 +1,24 @@
-﻿@model IEnumerable<Firma.Data.Data.CMS.Aktualnosc>
+﻿@model IEnumerable<Firma.Data.Data.CMS.CompanyHistory>
 
 @{
-    ViewData["Title"] = "Aktualności";
+    ViewData["Title"] = "Historia firmy";
 }
 
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-3">
-        <h1 class="h3">Lista aktualności</h1>
-        <a asp-action="Create" class="btn btn-primary">Dodaj nową aktualność</a>
+        <h1 class="h3">Historia firmy</h1>
+        <a asp-action="Create" class="btn btn-primary">Dodaj nową historię</a>
     </div>
 
     <div class="table-responsive">
         <table class="table table-hover table-bordered align-middle">
             <thead class="table-color">
                 <tr>
-                    <th>@Html.DisplayNameFor(model => model.Pozycja)</th>
-                    <th>@Html.DisplayNameFor(model => model.Tytul)</th>
-                    <th>@Html.DisplayNameFor(model => model.Tresc)</th>
+                    <th>@Html.DisplayNameFor(model => model.Header)</th>
+                    <th>@Html.DisplayNameFor(model => model.Contents)</th>
                     <th class="text-center">Podgląd zdjęcia</th>
+                    <th>Data utworzenia</th>
+                    <th>Data edycji</th>
                     <th class="text-center">Akcje</th>
                 </tr>
             </thead>
@@ -25,16 +26,17 @@
                 @foreach (var item in Model)
                 {
                     <tr>
-                        <td class="p-2">@Html.DisplayFor(modelItem => item.Pozycja)</td>
-                        <td class="p-2">@Html.DisplayFor(modelItem => item.Tytul)</td>
-                        <td class="p-2">@Html.DisplayFor(modelItem => item.Tresc)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Header)</td>
+                        <td>@Html.Raw(item.Contents)</td>
                         <td class="p-2 text-center">
                             <img src="@item.AdresURL" alt="Zdjęcie" class="img-preview" />
                         </td>
+                        <td>@Html.DisplayFor(modelItem => item.CreatedAt)</td>
+                        <td>@Html.DisplayFor(modelItem => item.UpdatedAt)</td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
-                                <a asp-action="Edit" asp-route-id="@item.IdAktualnosci" class="btn btn-sm me-3">Edytuj</a>
-                                <a asp-action="Delete" asp-route-id="@item.IdAktualnosci" class="btn btn-sm">Usuń</a>
+                                <a asp-action="Edit" asp-route-id="@item.IdCompanyHistory" class="btn btn-sm me-3">Edytuj</a>
+                                <a asp-action="Delete" asp-route-id="@item.IdCompanyHistory" class="btn btn-sm">Usuń</a>
                             </div>
                         </td>
                     </tr>

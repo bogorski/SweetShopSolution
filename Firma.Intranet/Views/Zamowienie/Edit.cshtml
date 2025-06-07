@@ -1,68 +1,4 @@
-﻿@* @model Firma.Data.Data.Sklep.Zamowienie *@
-
-@* @{ *@
-@*     ViewData["Title"] = "Edit"; *@
-@* } *@
-
-@* <h1>Edit</h1> *@
-
-@* <h4>Zamowienie</h4> *@
-@* <hr /> *@
-@* <div class="row"> *@
-@*     <div class="col-md-4"> *@
-@*         <form asp-action="Edit"> *@
-@*             <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
-@*             <input type="hidden" asp-for="IdZamowienia" /> *@
-@*             <div class="form-group"> *@
-@*                 <label asp-for="Numer" class="control-label"></label> *@
-@*                 <input asp-for="Numer" class="form-control" /> *@
-@*                 <span asp-validation-for="Numer" class="text-danger"></span> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <label asp-for="Kwota" class="control-label"></label> *@
-@*                 <input asp-for="Kwota" class="form-control" /> *@
-@*                 <span asp-validation-for="Kwota" class="text-danger"></span> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <label asp-for="Status" class="control-label"></label> *@
-@*                 <input asp-for="Status" class="form-control" /> *@
-@*                 <span asp-validation-for="Status" class="text-danger"></span> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <label asp-for="DataZamowienia" class="control-label"></label> *@
-@*                 <input asp-for="DataZamowienia" class="form-control" /> *@
-@*                 <span asp-validation-for="DataZamowienia" class="text-danger"></span> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <label asp-for="DataOdbioru" class="control-label"></label> *@
-@*                 <input asp-for="DataOdbioru" class="form-control" /> *@
-@*                 <span asp-validation-for="DataOdbioru" class="text-danger"></span> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <label asp-for="Uwagi" class="control-label"></label> *@
-@*                 <input asp-for="Uwagi" class="form-control" /> *@
-@*                 <span asp-validation-for="Uwagi" class="text-danger"></span> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <label asp-for="IdKlienta" class="control-label"></label> *@
-@*                 <select asp-for="IdKlienta" class="form-control" asp-items="ViewBag.IdKlienta"></select> *@
-@*                 <span asp-validation-for="IdKlienta" class="text-danger"></span> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <input type="submit" value="Save" class="btn btn-primary" /> *@
-@*             </div> *@
-@*         </form> *@
-@*     </div> *@
-@* </div> *@
-
-@* <div> *@
-@*     <a asp-action="Index">Back to List</a> *@
-@* </div> *@
-
-@* @section Scripts { *@
-@*     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} *@
-@* } *@
-@model Firma.Data.Data.Sklep.Zamowienie
+﻿@model Firma.Data.Data.Sklep.Zamowienie
 
 @{
     ViewData["Title"] = "Edytuj Zamówienie";
@@ -111,12 +47,12 @@
 
                     <div class="form-group mb-3">
                         <label asp-for="Uwagi" class="form-label fw-bold"></label>
-                        <input asp-for="Uwagi" class="form-control" placeholder="Wprowadź uwagi do zamówienia" />
+                        <textarea asp-for="Uwagi" class="form-control" placeholder="Wprowadź uwagi do zamówienia" rows="4"></textarea>
                         <span asp-validation-for="Uwagi" class="text-danger"></span>
                     </div>
 
                     <div class="form-group mb-3">
-                        <label asp-for="IdKlienta" class="form-label fw-bold"></label>
+                        <label asp-for="IdKlienta" class="form-label fw-bold">Klient</label>
                         <select asp-for="IdKlienta" class="form-control" asp-items="ViewBag.IdKlienta">
                             <option value="">Wybierz klienta</option>
                         </select>

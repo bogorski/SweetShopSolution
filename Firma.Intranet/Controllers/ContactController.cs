@@ -6,27 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Firma.Data.Data;
-using Firma.Data.Data.Sklep;
+using Firma.Data.Data.CMS;
 
 namespace Firma.Intranet.Controllers
 {
-    public class ZamowienieController : Controller
+    public class ContactController : Controller
     {
         private readonly FirmaContext _context;
 
-        public ZamowienieController(FirmaContext context)
+        public ContactController(FirmaContext context)
         {
             _context = context;
         }
 
-        // GET: Zamowienie
+        // GET: Contact
         public async Task<IActionResult> Index()
         {
-            var firmaIntranetContext = _context.Zamowienie.Include(z => z.Klient);
-            return View(await firmaIntranetContext.ToListAsync());
+            return View(await _context.Contact.ToListAsync());
         }
 
-        // GET: Zamowienie/Details/5
+        // GET: Contact/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -34,42 +33,39 @@ namespace Firma.Intranet.Controllers
                 return NotFound();
             }
 
-            var zamowienie = await _context.Zamowienie
-                .Include(z => z.Klient)
-                .FirstOrDefaultAsync(m => m.IdZamowienia == id);
-            if (zamowienie == null)
+            var contact = await _context.Contact
+                .FirstOrDefaultAsync(m => m.IdContact == id);
+            if (contact == null)
             {
                 return NotFound();
             }
 
-            return View(zamowienie);
+            return View(contact);
         }
 
-        // GET: Zamowienie/Create
+        // GET: Contact/Create
         public IActionResult Create()
         {
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko");
             return View();
         }
 
-        // POST: Zamowienie/Create
+        // POST: Contact/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IdZamowienia,Numer,Kwota,Status,DataZamowienia,DataOdbioru,Uwagi,IdKlienta")] Zamowienie zamowienie)
+        public async Task<IActionResult> Create([Bind("IdContact,Phone,ContactHours,Email,ResponseInfo,Address,OpeningHours,CreatedAt,UpdatedAt")] Contact contact)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(zamowienie);
+                _context.Add(contact);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko", zamowienie.IdKlienta);
-            return View(zamowienie);
+            return View(contact);
         }
 
-        // GET: Zamowienie/Edit/5
+        // GET: Contact/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -77,23 +73,22 @@ namespace Firma.Intranet.Controllers
                 return NotFound();
             }
 
-            var zamowienie = await _context.Zamowienie.FindAsync(id);
-            if (zamowienie == null)
+            var contact = await _context.Contact.FindAsync(id);
+            if (contact == null)
             {
                 return NotFound();
             }
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko", zamowienie.IdKlienta);
-            return View(zamowienie);
+            return View(contact);
         }
 
-        // POST: Zamowienie/Edit/5
+        // POST: Contact/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IdZamowienia,Numer,Kwota,Status,DataZamowienia,DataOdbioru,Uwagi,IdKlienta")] Zamowienie zamowienie)
+        public async Task<IActionResult> Edit(int id, [Bind("IdContact,Phone,ContactHours,Email,ResponseInfo,Address,OpeningHours,CreatedAt,UpdatedAt")] Contact contact)
         {
-            if (id != zamowienie.IdZamowienia)
+            if (id != contact.IdContact)
             {
                 return NotFound();
             }
@@ -102,12 +97,12 @@ namespace Firma.Intranet.Controllers
             {
                 try
                 {
-                    _context.Update(zamowienie);
+                    _context.Update(contact);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ZamowienieExists(zamowienie.IdZamowienia))
+                    if (!ContactExists(contact.IdContact))
                     {
                         return NotFound();
                     }
@@ -118,11 +113,10 @@ namespace Firma.Intranet.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko", zamowienie.IdKlienta);
-            return View(zamowienie);
+            return View(contact);
         }
 
-        // GET: Zamowienie/Delete/5
+        // GET: Contact/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -130,35 +124,34 @@ namespace Firma.Intranet.Controllers
                 return NotFound();
             }
 
-            var zamowienie = await _context.Zamowienie
-                .Include(z => z.Klient)
-                .FirstOrDefaultAsync(m => m.IdZamowienia == id);
-            if (zamowienie == null)
+            var contact = await _context.Contact
+                .FirstOrDefaultAsync(m => m.IdContact == id);
+            if (contact == null)
             {
                 return NotFound();
             }
 
-            return View(zamowienie);
+            return View(contact);
         }
 
-        // POST: Zamowienie/Delete/5
+        // POST: Contact/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var zamowienie = await _context.Zamowienie.FindAsync(id);
-            if (zamowienie != null)
+            var contact = await _context.Contact.FindAsync(id);
+            if (contact != null)
             {
-                _context.Zamowienie.Remove(zamowienie);
+                _context.Contact.Remove(contact);
             }
 
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ZamowienieExists(int id)
+        private bool ContactExists(int id)
         {
-            return _context.Zamowienie.Any(e => e.IdZamowienia == id);
+            return _context.Contact.Any(e => e.IdContact == id);
         }
     }
 }

@@ -41,7 +41,7 @@
 
                     <div class="form-group mb-3">
                         <label asp-for="Opis" class="form-label fw-bold"></label>
-                        <input asp-for="Opis" class="form-control" placeholder="Wprowadź opis cukierni" />
+                        <textarea asp-for="Opis" class="form-control" placeholder="Wprowadź opis cukierni" rows="6"></textarea>
                         <span asp-validation-for="Opis" class="text-danger"></span>
                     </div>
 
@@ -56,12 +56,12 @@
                         <input asp-for="AdresURL" class="form-control" placeholder="Wprowadź adres URL zdjęcia cukierni" />
                         <span asp-validation-for="AdresURL" class="text-danger"></span>
                     </div>
-                    
-                <div class="form-group mb-3">
-                <label asp-for="IFrameGoogleMap" class="form-label fw-bold"></label>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="IFrameGoogleMap" class="form-label fw-bold"></label>
                         <input asp-for="IFrameGoogleMap" class="form-control" placeholder="Wprowadź iframe Mapy Google" />
                         <span asp-validation-for="IFrameGoogleMap" class="text-danger"></span>
-            </div>
+                    </div>
 
                     <div class="form-group mt-4">
                         <button type="submit" class="btn btn-primary">Zapisz zmiany</button>

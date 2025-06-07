@@ -1,49 +1,4 @@
-﻿@* @model Firma.Data.Data.Sklep.Reklamacja *@
-
-@* @{ *@
-@*     ViewData["Title"] = "Edit"; *@
-@* } *@
-
-@* <h1>Edit</h1> *@
-
-@* <h4>Reklamacja</h4> *@
-@* <hr /> *@
-@* <div class="row"> *@
-@*     <div class="col-md-4"> *@
-@*         <form asp-action="Edit"> *@
-@*             <div asp-validation-summary="ModelOnly" class="text-danger"></div> *@
-@*             <input type="hidden" asp-for="IdReklamacji" /> *@
-@*             <div class="form-group"> *@
-@*                 <label asp-for="Opis" class="control-label"></label> *@
-@*                 <input asp-for="Opis" class="form-control" /> *@
-@*                 <span asp-validation-for="Opis" class="text-danger"></span> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <label asp-for="DataZgloszenia" class="control-label"></label> *@
-@*                 <input asp-for="DataZgloszenia" class="form-control" /> *@
-@*                 <span asp-validation-for="DataZgloszenia" class="text-danger"></span> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <label asp-for="IdZamowienia" class="control-label"></label> *@
-@*                 <select asp-for="IdZamowienia" class="form-control" asp-items="ViewBag.IdZamowienia"></select> *@
-@*                 <span asp-validation-for="IdZamowienia" class="text-danger"></span> *@
-@*             </div> *@
-@*             <div class="form-group"> *@
-@*                 <input type="submit" value="Save" class="btn btn-primary" /> *@
-@*             </div> *@
-@*         </form> *@
-@*     </div> *@
-@* </div> *@
-
-@* <div> *@
-@*     <a asp-action="Index">Back to List</a> *@
-@* </div> *@
-
-@* @section Scripts { *@
-@*     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");} *@
-@* } *@
-
-@model Firma.Data.Data.Sklep.Reklamacja
+﻿@model Firma.Data.Data.Sklep.Reklamacja
 
 @{
     ViewData["Title"] = "Edytuj Reklamację";
@@ -59,27 +14,23 @@
                 <form asp-action="Edit">
                     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
                     <input type="hidden" asp-for="IdReklamacji" />
-
                     <div class="form-group mb-3">
-                        <label asp-for="Opis" class="form-label fw-bold"></label>
-                        <input asp-for="Opis" class="form-control" placeholder="Wprowadź opis reklamacji" />
-                        <span asp-validation-for="Opis" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label asp-for="DataZgloszenia" class="form-label fw-bold"></label>
-                        <input asp-for="DataZgloszenia" class="form-control" placeholder="Wprowadź datę zgłoszenia" />
-                        <span asp-validation-for="DataZgloszenia" class="text-danger"></span>
-                    </div>
-
-                    <div class="form-group mb-3">
-                        <label asp-for="IdZamowienia" class="form-label fw-bold"></label>
+                        <label asp-for="IdZamowienia" class="form-label fw-bold">Zamówienie</label>
                         <select asp-for="IdZamowienia" class="form-control" asp-items="ViewBag.IdZamowienia">
                             <option value="">Wybierz zamówienie</option>
                         </select>
                         <span asp-validation-for="IdZamowienia" class="text-danger"></span>
                     </div>
-
+                    <div class="form-group mb-3">
+                        <label asp-for="Opis" class="form-label fw-bold"></label>
+                        <textarea asp-for="Opis" class="form-control" placeholder="Wprowadź opis reklamacji"></textarea>
+                        <span asp-validation-for="Opis" class="text-danger"></span>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label asp-for="DataZgloszenia" class="form-label fw-bold"></label>
+                        <input asp-for="DataZgloszenia" class="form-control" placeholder="Wprowadź datę zgłoszenia" />
+                        <span asp-validation-for="DataZgloszenia" class="text-danger"></span>
+                    </div>
                     <div class="form-group mt-4">
                         <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
                     </div>

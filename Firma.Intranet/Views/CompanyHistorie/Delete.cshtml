@@ -1,32 +1,35 @@
-﻿@model Firma.Data.Data.CMS.Aktualnosc
+﻿@model Firma.Data.Data.CMS.CompanyHistory
 
 @{
-    ViewData["Title"] = "Usuń aktualność";
+    ViewData["Title"] = "Usuń historię firmy";
 }
 
 <div class="container my-5 d-flex justify-content-center">
     <div class="col-md-6">
         <div class="card border-danger">
             <div class="card-header text-white">
-                <h4 class="mb-0 text-center">Potwierdź usunięcie aktualności</h4>
+                <h4 class="mb-0 text-center">Potwierdź usunięcie historii firmy</h4>
             </div>
             <div class="card-body">
                 <dl class="row">
-                    <dt class="col-sm-4 fw-bold">Tytuł</dt>
-                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Tytul)</dd>
+                    <dt class="col-sm-4 fw-bold">Nagłówek</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Header)</dd>
 
                     <dt class="col-sm-4 fw-bold">Treść</dt>
-                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Tresc)</dd>
-
-                    <dt class="col-sm-4 fw-bold">Pozycja</dt>
-                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Pozycja)</dd>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Contents)</dd>
 
                     <dt class="col-sm-4 fw-bold">Adres URL</dt>
                     <dd class="col-sm-8">@Html.DisplayFor(model => model.AdresURL)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Data utworzenia</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.CreatedAt)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Data aktualizacji</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.UpdatedAt)</dd>
                 </dl>
 
                 <form asp-action="Delete">
-                    <input type="hidden" asp-for="IdAktualnosci" />
+                    <input type="hidden" asp-for="IdCompanyHistory" />
                     <div class="mt-4">
                         <button type="submit" class="btn btn-danger">Usuń</button>
                         <a asp-action="Index" class="btn btn-secondary">Anuluj</a>

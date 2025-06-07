@@ -17,7 +17,11 @@ namespace Firma.Intranet.Controllers
         // GET: Aktualnosci
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Aktualnosc.ToListAsync());
+            var aktualnosci = await _context.Aktualnosc
+                .OrderBy(m => m.Pozycja)
+                .ToListAsync();
+
+            return View(aktualnosci);
         }
 
         // GET: Aktualnosc/Details/5

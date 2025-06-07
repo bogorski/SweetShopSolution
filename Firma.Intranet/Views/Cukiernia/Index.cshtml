@@ -20,9 +20,7 @@
                     <th>@Html.DisplayNameFor(model => model.Email)</th>
                     <th>@Html.DisplayNameFor(model => model.Opis)</th>
                     <th>@Html.DisplayNameFor(model => model.GodzinyOtwarcia)</th>
-                    <th>@Html.DisplayNameFor(model => model.AdresURL)</th>
-                    <th>@Html.DisplayNameFor(model => model.IFrameGoogleMap)</th>
-                    @* <th>@Html.DisplayNameFor(model => model.FotoUrl)</th> *@
+                    <th class="text-center">Podgląd zdjęcia</th>
                     <th class="text-center">Akcje</th>
                 </tr>
             </thead>
@@ -36,9 +34,9 @@
                         <td>@Html.DisplayFor(modelItem => item.Email)</td>
                         <td>@Html.DisplayFor(modelItem => item.Opis)</td>
                         <td>@Html.DisplayFor(modelItem => item.GodzinyOtwarcia)</td>
-                        <td>@Html.DisplayFor(modelItem => item.AdresURL)</td>
-                        <td>@Html.DisplayFor(modelItem => item.IFrameGoogleMap)</td>
-                        @* <td>@Html.DisplayFor(modelItem => item.FotoUrl)</td> *@
+                        <td class="p-2 text-center">
+                            <img src="@item.AdresURL" alt="Zdjęcie" class="img-preview" />
+                        </td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
                                 <a asp-action="Edit" asp-route-id="@item.IdCukierni" class="btn btn-sm">Edytuj</a>
