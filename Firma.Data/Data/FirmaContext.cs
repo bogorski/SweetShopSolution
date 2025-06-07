@@ -25,5 +25,8 @@ namespace Firma.Data.Data
         public DbSet<Reklamacja> Reklamacja { get; set; } = default!;
         public DbSet<Koszyk> Koszyk { get; set; } = default!;
         public DbSet<ZamowieniePozycja> ZamowieniePozycja { get; set; } = default!;
+        public DbSet<Advantage> Advantage { get; set; } = default!;
+        public DbSet<CompanyHistory> CompanyHistory { get; set; } = default!;
+        public DbSet<Contact> Contact { get; set; } = default!;
     }
 }

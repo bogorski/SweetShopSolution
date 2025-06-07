@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Firma.Data.Data.CMS.Advantage>
+
+<div class="col">
+    <h2 class="text-center fw-bold my-3 dark-rusty-color">Dlaczego warto nas wybrać?</h2>
+    <div class="row text-center g-4 my-3">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 my-3">
+                <div class="feature-icon">@item.Icon</div>
+                <p class="h5">@item.Header</p>
+                <p>@item.Contents</p>
+            </div>
+        }
+    </div>
+</div>

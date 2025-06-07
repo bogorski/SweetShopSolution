@@ -7,16 +7,13 @@
             <div class="carousel-item @(item.Pozycja == 1 ? "active" : "")">
                 <div class="row px-5">
                     <div class="col-12 offset-lg-1 col-lg-5 text-center d-none d-md-block">
-                        <img src=@item.AdresURL class="d-block w-100 carousel-img" alt="First slide lodowkomat">
+                        <img src=@item.AdresURL class="d-block w-100 carousel-img" alt="@item.Tytul">
                     </div>
-                    <div class="col-12 col-lg-5 pt-5 pt-lg-0">
-                        <h4 class="text-center fw-bold">@item.Tytul</h4>
+                    <div class="col-12 col-lg-5 pt-5 pt-lg-0 d-flex flex-column align-items-center justify-content-center">
+                        <h4 class="text-center fw-bold dark-rusty-color">@item.Tytul</h4>
                         <p class="text-center my-3">
                             @item.Tresc
                         </p>
-                        <div class="text-center">
-                            <a class="btn mt-3" role="button">Sprawdź!</a>
-                        </div>
                     </div>
                 </div>
             </div>

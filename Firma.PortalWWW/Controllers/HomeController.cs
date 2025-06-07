@@ -31,6 +31,15 @@ namespace Firma.PortalWWW.Controllers
 
             ViewBag.ModelAktualnosci = await _aktualnoscService.GetAktualnoscByPozycjaTake(4);
 
+            ViewBag.ModelAdvantage = await _context.Advantage
+                .OrderByDescending(a => a.DisplayOrder)
+                .Take(3)
+                .ToListAsync();
+
+            ViewBag.ModelCompanyHistory = await _context.CompanyHistory
+                .OrderByDescending(c => c.UpdatedAt ?? c.CreatedAt)
+                .FirstOrDefaultAsync();
+
             ViewBag.ModelGaleria = await _context.ZdjecieGaleria
                 .OrderByDescending(z => z.Pozycja)
                 .Take(6)
@@ -61,8 +70,12 @@ namespace Firma.PortalWWW.Controllers
             return View(skladniki);
         }
 
-        public IActionResult Kontakt()
+        public async Task<IActionResult> Kontakt()
         {
+            ViewBag.ModelContact = await _context.Contact
+                .OrderByDescending(c => c.UpdatedAt ?? c.CreatedAt)
+                .FirstOrDefaultAsync();
+
             return View();
         }
 

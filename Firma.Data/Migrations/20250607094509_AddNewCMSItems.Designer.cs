@@ -4,6 +4,7 @@ using Firma.Data.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Firma.Data.Migrations
 {
     [DbContext(typeof(FirmaContext))]
-    partial class FirmaContextModelSnapshot : ModelSnapshot
+    [Migration("20250607094509_AddNewCMSItems")]
+    partial class AddNewCMSItems
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,44 +24,6 @@ namespace Firma.Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("Firma.Data.Data.CMS.Advantage", b =>
-                {
-                    b.Property<int>("IdAdvantage")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAdvantage"));
-
-                    b.Property<string>("Contents")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(MAX)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("DisplayOrder")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Header")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("Icon")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("IdAdvantage");
-
-                    b.ToTable("Advantage");
-                });
 
             modelBuilder.Entity("Firma.Data.Data.CMS.Aktualnosc", b =>
                 {
@@ -87,87 +52,6 @@ namespace Firma.Data.Migrations
                     b.HasKey("IdAktualnosci");
 
                     b.ToTable("Aktualnosc");
-                });
-
-            modelBuilder.Entity("Firma.Data.Data.CMS.CompanyHistory", b =>
-                {
-                    b.Property<int>("IdCompanyHistory")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCompanyHistory"));
-
-                    b.Property<string>("AdresURL")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("Contents")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(MAX)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Header")
-                        .IsRequired()
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("IdCompanyHistory");
-
-                    b.ToTable("CompanyHistory");
-                });
-
-            modelBuilder.Entity("Firma.Data.Data.CMS.Contact", b =>
-                {
-                    b.Property<int>("IdContact")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdContact"));
-
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("ContactHours")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("OpeningHours")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("Phone")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("ResponseInfo")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<DateTime?>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("IdContact");
-
-                    b.ToTable("Contact");
                 });
 
             modelBuilder.Entity("Firma.Data.Data.CMS.Strona", b =>
