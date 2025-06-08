@@ -65,7 +65,7 @@ namespace Firma.Intranet.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "Adres", zamowienie.IdKlienta);
+            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko", zamowienie.IdKlienta);
             return View(zamowienie);
         }
 
@@ -82,7 +82,7 @@ namespace Firma.Intranet.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "Adres", zamowienie.IdKlienta);
+            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko", zamowienie.IdKlienta);
             return View(zamowienie);
         }
 
@@ -118,7 +118,7 @@ namespace Firma.Intranet.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "Adres", zamowienie.IdKlienta);
+            ViewData["IdKlienta"] = new SelectList(_context.Klient, "IdKlienta", "ImieINazwisko", zamowienie.IdKlienta);
             return View(zamowienie);
         }
 

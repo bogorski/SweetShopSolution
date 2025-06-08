@@ -1,0 +1,80 @@
+﻿@model Firma.PortalWWW.Models.ViewModels.AccountEditViewModel
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-header rusty-background text-white text-center">
+                    <h4 class="mb-0">Edytuj konto</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post">
+                        @Html.AntiForgeryToken()
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Imie" class="form-label fw-bold"></label>
+                                <input asp-for="Imie" class="form-control"/>
+                                <span asp-validation-for="Imie" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Nazwisko" class="form-label fw-bold"></label>
+                                <input asp-for="Nazwisko" class="form-control"/>
+                                <span asp-validation-for="Nazwisko" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-bold"></label>
+                            <input asp-for="Email" class="form-control"/>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Telefon" class="form-label fw-bold"></label>
+                            <input asp-for="Telefon" class="form-control"/>
+                            <span asp-validation-for="Telefon" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Adres" class="form-label fw-bold"></label>
+                            <input asp-for="Adres" class="form-control"/>
+                            <span asp-validation-for="Adres" class="text-danger"></span>
+                        </div>
+
+                        <hr/>
+
+                        <h5 class="mt-4">Zmiana hasła</h5>
+                        <p class="text-muted">Pozostaw pola puste jeśli nie chcesz zmieniać hasła.</p>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="mb-3">
+                            <label asp-for="CurrentPassword" class="form-label fw-bold"></label>
+                            <input asp-for="CurrentPassword" class="form-control"/>
+                            <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label fw-bold"></label>
+                            <input asp-for="Password" class="form-control"/>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="ConfirmPassword" class="form-label fw-bold"></label>
+                            <input asp-for="ConfirmPassword" class="form-control"/>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Zapisz zmiany</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

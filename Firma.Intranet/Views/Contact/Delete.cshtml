@@ -1,0 +1,50 @@
+﻿@model Firma.Data.Data.CMS.Contact
+
+@{
+    ViewData["Title"] = "Usuń dane siedziby";
+}
+
+<div class="container my-5 d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger">
+            <div class="card-header text-white">
+                <h4 class="mb-0 text-center">Potwierdź usunięcie danych siedziby</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4 fw-bold">Telefon</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Phone)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Godziny kontaktu</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.ContactHours)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Email</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Email)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Informacje o odpowiedzi</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.ResponseInfo)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Adres</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Address)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Godziny otwarcia</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.OpeningHours)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Data utworzenia</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.CreatedAt)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Data aktualizacji</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.UpdatedAt)</dd>
+                </dl>
+
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="IdContact" />
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-danger">Usuń</button>
+                        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

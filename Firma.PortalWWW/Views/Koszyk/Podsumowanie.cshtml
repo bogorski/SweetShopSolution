@@ -1,0 +1,62 @@
+﻿@model Firma.Data.Data.Sklep.Zamowienie
+@{
+    ViewData["Title"] = "Podsumowanie zamówienia";
+    Layout = "~/Views/Shared/_SklepLayout.cshtml";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-6">
+
+            <div class="alert bakery-rose-background text-center shadow-sm py-4">
+                <h2 class="text-uppercase fw-bold text-center rusty-color">Dziękujemy za zamówienie!</h2>
+                <p class="mb-0 rusty-color">Poniżej znajdziesz szczegóły swojego zamówienia.</p>
+            </div>
+
+            <div class="card mb-4 shadow-sm">
+                <div class="card-header rusty-background text-white fw-bold">
+                    Szczegóły zamówienia
+                </div>
+                <div class="card-body">
+                    <p><strong>Numer zamówienia:</strong> @Model.Numer</p>
+                    <p><strong>Data złożenia:</strong> @Model.DataZamowienia.ToString("g")</p>
+                    <p><strong>Data odbioru:</strong> @Model.DataOdbioru.ToString("d") <small>(w godzinach otwarcia cukierni)</small></p>
+                    <p><strong>Status:</strong> <span class="badge bakery-rose-background rusty-color">@Model.Status</span></p>
+                    <p><strong>Łączna kwota:</strong> <span class="fw-bold text-primary">@Model.Kwota.ToString("C")</span></p>
+                </div>
+            </div>
+
+            <div class="card shadow-sm">
+                <div class="card-body p-0">
+                    <table class="table table-borderless mb-0">
+                        <thead class="header">
+                            <tr>
+                                <th>Produkt</th>
+                                <th>Ilość</th>
+                                <th>Cena jedn.</th>
+                                <th>Wartość</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var p in Model.ZamowieniePozycja)
+                            {
+                                <tr>
+                                    <td>@p.Produkt?.Nazwa</td>
+                                    <td>@p.Ilosc</td>
+                                    <td>@p.Cena.ToString("C")</td>
+                                    <td>@((p.Ilosc * p.Cena).ToString("C"))</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="text-center mt-5">
+                <a asp-controller="Sklep" asp-action="Index" class="btn btn-primary">
+                    Powrót do sklepu
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

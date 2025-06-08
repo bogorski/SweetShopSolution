@@ -8,22 +8,29 @@ html {
     border-color: #8B5151 !important;
     cursor: pointer;
 }
+    .btn-primary:hover {
+        background-color: #8B5151 !important;
+        color: #FFE0E0 !important;
+    }
+
+.btn-secondary {
+    color: #FFE0E0 !important;
+    background-color: #8B5151 !important;
+    border-color: #FFE0E0 !important;
+    cursor: pointer;
+}
+    .btn-secondary:hover {
+        color: #8B5151 !important;
+        background-color: #FFE0E0 !important;
+    }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .btn {
-    background-color: #FFE0E0 !important;
-    color: #8B5151 !important;
     font-weight: bold;
 }
-
-    .btn:hover {
-        background-color: #8B5151 !important;
-        color: #FFE0E0 !important;
-    }
-
     .btn:focus, .btn:active {
         outline: none !important;
         box-shadow: none !important;
@@ -98,9 +105,18 @@ select:focus {
 }
 
 .rusty-background {
-    background-color: #8B5151;
+    background-color: #8B5151 !important;
+}
+.rusty-color {
+    color: #8B5151 !important;
+}
+.rich-chocolate-color {
+    color: #2b2321 !important;
 }
 
+.dark-rusty-color {
+    color: #49352e !important;
+}
 .misty-rose-background {
     background-color: #F7DAD9;
 }
@@ -235,6 +251,13 @@ thead {
     border-color: #8B5151;
 }
 
+tfoot td {
+    background-color: #F7DAD9 !important;
+    color: #8B5151 !important;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 .flip-card {
     width: 18rem;
     height: 24rem;
@@ -288,4 +311,8 @@ thead {
     font-size: 1rem;
     line-height: 1.3;
     padding: 1.5rem;
+}
+
+.text-primary {
+    color: #8B5151 !important;
 }

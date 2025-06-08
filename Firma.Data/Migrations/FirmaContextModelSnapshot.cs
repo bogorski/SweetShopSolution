@@ -22,6 +22,44 @@ namespace Firma.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Firma.Data.Data.CMS.Advantage", b =>
+                {
+                    b.Property<int>("IdAdvantage")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAdvantage"));
+
+                    b.Property<string>("Contents")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(MAX)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DisplayOrder")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Header")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Icon")
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("IdAdvantage");
+
+                    b.ToTable("Advantage");
+                });
+
             modelBuilder.Entity("Firma.Data.Data.CMS.Aktualnosc", b =>
                 {
                     b.Property<int>("IdAktualnosci")
@@ -31,6 +69,7 @@ namespace Firma.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdAktualnosci"));
 
                     b.Property<string>("AdresURL")
+                        .IsRequired()
                         .HasColumnType("nvarchar(200)");
 
                     b.Property<int>("Pozycja")
@@ -48,6 +87,87 @@ namespace Firma.Data.Migrations
                     b.HasKey("IdAktualnosci");
 
                     b.ToTable("Aktualnosc");
+                });
+
+            modelBuilder.Entity("Firma.Data.Data.CMS.CompanyHistory", b =>
+                {
+                    b.Property<int>("IdCompanyHistory")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdCompanyHistory"));
+
+                    b.Property<string>("AdresURL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Contents")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(MAX)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Header")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("IdCompanyHistory");
+
+                    b.ToTable("CompanyHistory");
+                });
+
+            modelBuilder.Entity("Firma.Data.Data.CMS.Contact", b =>
+                {
+                    b.Property<int>("IdContact")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdContact"));
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("ContactHours")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("OpeningHours")
+                        .IsRequired()
+                        .HasMaxLength(300)
+                        .HasColumnType("nvarchar(300)");
+
+                    b.Property<string>("Phone")
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)");
+
+                    b.Property<string>("ResponseInfo")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("IdContact");
+
+                    b.ToTable("Contact");
                 });
 
             modelBuilder.Entity("Firma.Data.Data.CMS.Strona", b =>
@@ -199,6 +319,10 @@ namespace Firma.Data.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("IdentityUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
                     b.Property<string>("Imie")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -216,7 +340,41 @@ namespace Firma.Data.Migrations
 
                     b.HasKey("IdKlienta");
 
+                    b.HasIndex("IdentityUserId");
+
                     b.ToTable("Klient");
+                });
+
+            modelBuilder.Entity("Firma.Data.Data.Sklep.Koszyk", b =>
+                {
+                    b.Property<int>("IdKoszyka")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdKoszyka"));
+
+                    b.Property<DateTime>("DataDodania")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("IdKlienta")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdProduktu")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Ilosc")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Uwagi")
+                        .HasColumnType("nvarchar(MAX)");
+
+                    b.HasKey("IdKoszyka");
+
+                    b.HasIndex("IdKlienta");
+
+                    b.HasIndex("IdProduktu");
+
+                    b.ToTable("Koszyk");
                 });
 
             modelBuilder.Entity("Firma.Data.Data.Sklep.Produkt", b =>
@@ -368,7 +526,6 @@ namespace Firma.Data.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Uwagi")
-                        .IsRequired()
                         .HasMaxLength(300)
                         .HasColumnType("nvarchar(300)");
 
@@ -377,6 +534,35 @@ namespace Firma.Data.Migrations
                     b.HasIndex("IdKlienta");
 
                     b.ToTable("Zamowienie");
+                });
+
+            modelBuilder.Entity("Firma.Data.Data.Sklep.ZamowieniePozycja", b =>
+                {
+                    b.Property<int>("IdZamowieniePozycja")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdZamowieniePozycja"));
+
+                    b.Property<decimal>("Cena")
+                        .HasColumnType("money");
+
+                    b.Property<int>("IdProduktu")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdZamowienia")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Ilosc")
+                        .HasColumnType("int");
+
+                    b.HasKey("IdZamowieniePozycja");
+
+                    b.HasIndex("IdProduktu");
+
+                    b.HasIndex("IdZamowienia");
+
+                    b.ToTable("ZamowieniePozycja");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -577,6 +763,36 @@ namespace Firma.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Firma.Data.Data.Sklep.Klient", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Uzytkownik")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Uzytkownik");
+                });
+
+            modelBuilder.Entity("Firma.Data.Data.Sklep.Koszyk", b =>
+                {
+                    b.HasOne("Firma.Data.Data.Sklep.Klient", "Klient")
+                        .WithMany("Koszyki")
+                        .HasForeignKey("IdKlienta")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Firma.Data.Data.Sklep.Produkt", "Produkt")
+                        .WithMany("Koszyki")
+                        .HasForeignKey("IdProduktu")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Klient");
+
+                    b.Navigation("Produkt");
+                });
+
             modelBuilder.Entity("Firma.Data.Data.Sklep.Produkt", b =>
                 {
                     b.HasOne("Firma.Data.Data.Sklep.Kategoria", "Kategoria")
@@ -627,6 +843,25 @@ namespace Firma.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Klient");
+                });
+
+            modelBuilder.Entity("Firma.Data.Data.Sklep.ZamowieniePozycja", b =>
+                {
+                    b.HasOne("Firma.Data.Data.Sklep.Produkt", "Produkt")
+                        .WithMany("ZamowieniePozycje")
+                        .HasForeignKey("IdProduktu")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Firma.Data.Data.Sklep.Zamowienie", "Zamowienie")
+                        .WithMany("ZamowieniePozycja")
+                        .HasForeignKey("IdZamowienia")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Produkt");
+
+                    b.Navigation("Zamowienie");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -687,17 +922,28 @@ namespace Firma.Data.Migrations
 
             modelBuilder.Entity("Firma.Data.Data.Sklep.Klient", b =>
                 {
+                    b.Navigation("Koszyki");
+
                     b.Navigation("Zamowienia");
                 });
 
             modelBuilder.Entity("Firma.Data.Data.Sklep.Produkt", b =>
                 {
+                    b.Navigation("Koszyki");
+
                     b.Navigation("ProduktSkladniki");
+
+                    b.Navigation("ZamowieniePozycje");
                 });
 
             modelBuilder.Entity("Firma.Data.Data.Sklep.Skladnik", b =>
                 {
                     b.Navigation("ProduktSkladniki");
+                });
+
+            modelBuilder.Entity("Firma.Data.Data.Sklep.Zamowienie", b =>
+                {
+                    b.Navigation("ZamowieniePozycja");
                 });
 #pragma warning restore 612, 618
         }

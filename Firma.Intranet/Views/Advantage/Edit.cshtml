@@ -1,0 +1,77 @@
+﻿@model Firma.Data.Data.CMS.Advantage
+
+@{
+    ViewData["Title"] = "Edytuj korzyść";
+}
+
+<div class="container my-5 d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-white">
+                <h4 class="mb-0 text-center">Formularz edycji korzyści</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <input type="hidden" asp-for="IdAdvantage" />
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Icon" class="form-label fw-bold">Ikona</label>
+                        <input asp-for="Icon" class="form-control" placeholder="Wprowadź ikonę" />
+                        <span asp-validation-for="Icon" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Header" class="form-label fw-bold"></label>
+                        <input asp-for="Header" class="form-control" placeholder="Wprowadź nagłówek" />
+                        <span asp-validation-for="Header" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Contents" class="form-label fw-bold"></label>
+                        <input asp-for="Contents" class="form-control" placeholder="Wprowadź treść" />
+                        <span asp-validation-for="Contents" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="DisplayOrder" class="form-label fw-bold"></label>
+                        <input asp-for="DisplayOrder" class="form-control" placeholder="Pozycja wyświetlania" />
+                        <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group form-check mb-3">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="IsActive" /> Czy aktywne?
+                        </label>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="CreatedAt" class="form-label fw-bold">Data utworzenia</label>
+                        <input asp-for="CreatedAt" class="form-control" placeholder="Data utworzenia" />
+                        <span asp-validation-for="CreatedAt" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="UpdatedAt" class="form-label fw-bold">Data aktualizacji</label>
+                        <input asp-for="UpdatedAt" class="form-control" placeholder="Data aktualizacji" />
+                        <span asp-validation-for="UpdatedAt" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <a asp-action="Index" class="btn btn-secondary">Powrót do listy</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

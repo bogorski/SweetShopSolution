@@ -6,36 +6,14 @@
         </div>
     </div>
     <div class="row p-5 bakery-rose-background">
-        <h2 class="text-center pb-4">Dane kontaktowe</h2>
-        <div class="col-lg-4">
-            <div class="card text-center h-100">
-                <div class="card-body">
-                    <h3>Telefon</h3>
-                    <p>+48 123 456 789</p>
-                    <p>Godziny kontaktowe:<br>Pon-Pt: 8:00-20:00<br>Sb: 9:00-18:00</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="card text-center h-100">
-                <div class="card-body">
-                    <h3>Email</h3>
-                    <p>kontakt@sweetshop.pl</p>
-                    <p>Odpowiadamy w ciągu 24 godzin w dni robocze</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-lg-4">
-            <div class="card text-center h-100">
-                <div class="card-body">
-                    <h3>Adres</h3>
-                    <p>ul. Słodka 123<br>00-001 Warszawa</p>
-                    <p>Godziny otwarcia:<br>Pon-Ndz: 8:00-20:00</p>
-                </div>
-            </div>
-        </div>
+        @if (ViewBag.ModelContact != null)
+        {
+            @await Html.PartialAsync("Contact", (Firma.Data.Data.CMS.Contact)ViewBag.ModelContact)
+        }
+        else
+        {
+            <p>Brak danych kontaktowych do wyświetlenia.</p>
+        }
     </div>
 
     <div class="row p-5">

@@ -1,0 +1,34 @@
+﻿<div class="container">
+    <div class="row">
+        <h2 class="text-center pb-4">Dane kontaktowe</h2>
+        <div class="col-lg-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h3>Telefon</h3>
+                    <p>@Model.Phone</p>
+                    <p>Godziny kontaktowe:@Html.Raw(@Model.ContactHours)</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h3>Email</h3>
+                    <p>@Model.Email</p>
+                    <p>@Model.ResponseInfo</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card text-center h-100">
+                <div class="card-body">
+                    <h3>Adres siedziby</h3>
+                    <p>@Html.Raw(@Model.Address)</p>
+                    <p>Godziny otwarcia:@Html.Raw(@Model.OpeningHours)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

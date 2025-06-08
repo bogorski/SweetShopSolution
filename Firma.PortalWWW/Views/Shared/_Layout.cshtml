@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Firma.PortalWWW</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Firma.PortalWWW.styles.css" asp-append-version="true" />
 </head>
@@ -19,20 +20,57 @@
                 <a class="navbar-brand d-none d-md-block mx-auto mx-md-0" href="/">
                      <img src="~/content/logo.svg" class="logo" alt="Logo"> 
                 </a>
-                <div class="navbar-collapse collapse d-md-flex justify-content-between w-100" id="navbarNav">
-                    <ul class="navbar-nav me-auto d-flex justify-content-evenly w-100">
-                        <li class="nav-item">
+                <div class="collapse navbar-collapse ms-5" id="navbarNav">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item mx-3">
                             <a class="nav-link nav-link-large" asp-area="" asp-controller="Sklep" asp-action="Index">Sklep</a>
                         </li>
-                        <li class="nav-item"> 
+                        <li class="nav-item mx-3">
                             <a class="nav-link nav-link-large" asp-area="" asp-controller="Home" asp-action="Cukiernie">Cukiernie</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-3">
                             <a class="nav-link nav-link-large" asp-area="" asp-controller="Home" asp-action="Skladniki">Składniki</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item mx-3">
                             <a class="nav-link nav-link-large" asp-area="" asp-controller="Home" asp-action="Kontakt">Kontakt</a>
                         </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        @if (User.Identity?.IsAuthenticated ?? false)
+                        {
+                            <li class="nav-item mx-3 d-flex align-items-center">
+                                <a class="nav-link nav-link-large" asp-controller="Koszyk" asp-action="Index" title="Koszyk">
+                                    <i class="bi bi-basket-fill fs-4"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown mx-3 d-flex align-items-center">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                   @User.Identity.Name
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                    <li>
+                                        <a class="dropdown-item" asp-controller="Account" asp-action="Edit">Edytuj konto</a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider" />
+                                    </li>
+                                    <li>
+                                        <form method="post" asp-controller="Account" asp-action="Logout" id="logoutForm">
+                                            <button type="submit" class="dropdown-item">Wyloguj się</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item mx-3">
+                                <a class="nav-link nav-link-large" asp-controller="Account" asp-action="Login">Zaloguj się</a>
+                            </li>
+                            <li class="nav-item mx-3">
+                                <a class="nav-link nav-link-large" asp-controller="Account" asp-action="Register">Zarejestruj się</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -43,8 +81,7 @@
         @RenderBody()
     </main>
 </div>
-@* @await Html.PartialAsync("Cukiernie", (IEnumerable<Firma.Data.Data.Sklep.Cukiernia>)ViewBag.ModelCukiernia) *@
-    @await Html.PartialAsync("Footer")
+    @await Component.InvokeAsync("FooterComponent")
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

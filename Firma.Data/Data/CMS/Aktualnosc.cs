@@ -21,6 +21,7 @@ namespace Firma.Data.Data.CMS
         [Display(Name = "Pozycja wyświetlania")]
         public int Pozycja { get; set; }
 
+        [Required(ErrorMessage = "Adres URL zdjęcia jest wymagany.")]
         [Column(TypeName = "nvarchar(200)")]
         [Display(Name = "Adres URL")]
         public string? AdresURL { get; set; }

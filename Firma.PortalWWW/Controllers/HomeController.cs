@@ -4,23 +4,23 @@ using Firma.PortalWWW.Models;
 using Firma.Interfaces.CMS;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Firma.PortalWWW.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
         private readonly FirmaContext _context;
         private readonly IAktualnoscService _aktualnoscService;
-        public HomeController(ILogger<HomeController> logger, FirmaContext firmaContext, IAktualnoscService aktualnoscService)
+        public HomeController(FirmaContext firmaContext, IAktualnoscService aktualnoscService)
         {
-            _logger = logger;
             _context = firmaContext;
             _aktualnoscService = aktualnoscService;
         }
 
         public async Task<IActionResult> Index(int? id)
         {
+
             ViewBag.ModelStrony = await _context.Strona
                 .OrderBy(s => s.Pozycja)
                 .ToListAsync();
@@ -30,6 +30,15 @@ namespace Firma.PortalWWW.Controllers
             //    .ToListAsync();
 
             ViewBag.ModelAktualnosci = await _aktualnoscService.GetAktualnoscByPozycjaTake(4);
+
+            ViewBag.ModelAdvantage = await _context.Advantage
+                .OrderByDescending(a => a.DisplayOrder)
+                .Take(3)
+                .ToListAsync();
+
+            ViewBag.ModelCompanyHistory = await _context.CompanyHistory
+                .OrderByDescending(c => c.UpdatedAt ?? c.CreatedAt)
+                .FirstOrDefaultAsync();
 
             ViewBag.ModelGaleria = await _context.ZdjecieGaleria
                 .OrderByDescending(z => z.Pozycja)
@@ -61,8 +70,12 @@ namespace Firma.PortalWWW.Controllers
             return View(skladniki);
         }
 
-        public IActionResult Kontakt()
+        public async Task<IActionResult> Kontakt()
         {
+            ViewBag.ModelContact = await _context.Contact
+                .OrderByDescending(c => c.UpdatedAt ?? c.CreatedAt)
+                .FirstOrDefaultAsync();
+
             return View();
         }
 

@@ -1,0 +1,83 @@
+﻿@model Firma.Data.Data.CMS.Contact
+
+@{
+    ViewData["Title"] = "Edytuj dane siedziby";
+}
+
+<div class="container my-5 d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-white">
+                <h4 class="mb-0 text-center">Formularz edycji danych siedziby</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <input type="hidden" asp-for="IdContact" />
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Phone" class="form-label fw-bold"></label>
+                        <input asp-for="Phone" class="form-control" placeholder="Wprowadź numer telefonu" />
+                        <span asp-validation-for="Phone" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="ContactHours" class="form-label fw-bold"></label>
+                        <input asp-for="ContactHours" class="form-control" placeholder="Wprowadź godziny kontaktu" />
+                        <span asp-validation-for="ContactHours" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Email" class="form-label fw-bold"></label>
+                        <input asp-for="Email" class="form-control" placeholder="Wprowadź adres email" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="ResponseInfo" class="form-label fw-bold"></label>
+                        <input asp-for="ResponseInfo" class="form-control" placeholder="Wprowadź informacje o odpowiedzi" />
+                        <span asp-validation-for="ResponseInfo" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Address" class="form-label fw-bold"></label>
+                        <input asp-for="Address" class="form-control" placeholder="Wprowadź adres" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="OpeningHours" class="form-label fw-bold"></label>
+                        <input asp-for="OpeningHours" class="form-control" placeholder="Wprowadź godziny otwarcia" />
+                        <span asp-validation-for="OpeningHours" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="CreatedAt" class="form-label fw-bold">Data utworzenia</label>
+                        <input asp-for="CreatedAt" class="form-control" placeholder="Data utworzenia" />
+                        <span asp-validation-for="CreatedAt" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="UpdatedAt" class="form-label fw-bold">Data aktualizacji</label>
+                        <input asp-for="UpdatedAt" class="form-control" placeholder="Data aktualizacji" />
+                        <span asp-validation-for="UpdatedAt" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-4">
+                        <button type="submit" class="btn btn-primary">Zapisz zmiany</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="mt-4 text-center">
+            <a asp-action="Index" class="btn btn-secondary">Powrót do listy</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

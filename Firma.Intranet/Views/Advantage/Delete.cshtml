@@ -1,0 +1,47 @@
+﻿@model Firma.Data.Data.CMS.Advantage
+
+@{
+    ViewData["Title"] = "Usuń korzyść";
+}
+
+<div class="container my-5 d-flex justify-content-center">
+    <div class="col-md-6">
+        <div class="card border-danger">
+            <div class="card-header text-white">
+                <h4 class="mb-0 text-center">Potwierdź usunięcie korzyści</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4 fw-bold">Ikona</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Icon)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Nagłówek</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Header)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Treść</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.Contents)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Pozycja</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.DisplayOrder)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Status</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.IsActive)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Data utworzenia</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.CreatedAt)</dd>
+
+                    <dt class="col-sm-4 fw-bold">Data aktualizacji</dt>
+                    <dd class="col-sm-8">@Html.DisplayFor(model => model.UpdatedAt)</dd>
+                </dl>
+
+                <form asp-action="Delete">
+                    <input type="hidden" asp-for="IdAdvantage" />
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-danger">Usuń</button>
+                        <a asp-action="Index" class="btn btn-secondary">Anuluj</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
