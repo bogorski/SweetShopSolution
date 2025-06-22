@@ -22,7 +22,7 @@
 
                     <div class="form-group mb-3">
                         <label asp-for="Opis" class="form-label fw-bold"></label>
-                        <textarea asp-for="Opis" class="form-control" rows="3" placeholder="Wprowadź opis produktu"></textarea>
+                        <textarea asp-for="Opis" class="form-control tinymce-editor" id="Opis" rows="3" placeholder="Wprowadź opis produktu"></textarea>
                         <span asp-validation-for="Opis" class="text-danger"></span>
                     </div>
 
@@ -64,7 +64,6 @@
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @await Html.PartialAsync("_TinyMCE")
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 }

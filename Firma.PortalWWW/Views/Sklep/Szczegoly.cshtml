@@ -14,7 +14,7 @@
                 </div>
                 <div class="card-body text-center">
                     <img src="@Model.AdresURL" alt="@Model.Nazwa" class="img-fluid product-img mb-3" style="max-width: 300px;" />
-                    <p>@Model.Opis</p>
+                    <p>@Html.Raw(@Model.Opis)</p>
                     <p class="h4 fw-bold">Cena: <span class="text-primary">@Model.Cena.ToString("C2")</span></p>
                 </div>
                 <div class="card-body text-center">

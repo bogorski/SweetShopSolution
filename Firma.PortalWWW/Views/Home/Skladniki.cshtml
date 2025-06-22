@@ -1,11 +1,14 @@
 ﻿<div class="container my-5">
     <div class="d-flex flex-wrap justify-content-center gap-4">
+        <div class="col-12 text-center mb-2">
+            <p class="section-title mb-5 h1 dark-rusty-color fw-bold">Z czego powstają nasze ciasta?</p>
+        </div>
         @foreach (var item in Model)
         {
             <div class="flip-card">
                 <div class="flip-card-inner">
                     <div class="card-front">
-                        <img src="@item.AdresURL" alt="@item.Nazwa" />
+                        <img src="@item.AdresURL" alt="@item.Nazwa"/>
                         <h5>@item.Nazwa</h5>
                     </div>
                     <div class="card-back">

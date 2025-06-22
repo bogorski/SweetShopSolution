@@ -7,7 +7,7 @@
 <div class="container m-5">
     <div class="row mb-2">
         <div class="col-12 text-center mb-2">
-            <p class=" section-title mb-5 h1">Nasze produkty</p>
+            <p class=" section-title mb-5 h1 dark-rusty-color fw-bold">Nasze produkty</p>
         </div>
         <div class="col-12">
             @* <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="sortDropdown" data-bs-toggle="dropdown"> *@
@@ -32,7 +32,7 @@
                          onerror="this.onerror=null; this.src='https://x13.pl/img/cms/blog/zmiana-zdjecia/nowe_zdjecie.jpg';">
                     <div class="card-body my-4">
                         <p class="card-title mb-3 h4">@item.Nazwa</p>
-                        <p class="card-text">@item.Opis</p>
+                        <p class="card-text">@Html.Raw(item.Opis)</p>
                         <p class="mt-5 h4">od @item.Cena.ToString("#,##0.00") zł</p>
                     </div>
                     <div class="card-footer bg-white border-0 mb-3">

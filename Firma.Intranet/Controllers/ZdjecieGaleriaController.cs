@@ -22,7 +22,9 @@ namespace Firma.Intranet.Controllers
         // GET: ZdjecieGaleria
         public async Task<IActionResult> Index()
         {
-            return View(await _context.ZdjecieGaleria.ToListAsync());
+            var firmaIntranetContext = _context.ZdjecieGaleria
+                .OrderBy(z => z.Pozycja);
+            return View(await firmaIntranetContext.ToListAsync());
         }
 
         // GET: ZdjecieGaleria/Details/5

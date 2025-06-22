@@ -23,16 +23,24 @@
 
                     <div class="form-group mb-3">
                         <label asp-for="Opis" class="form-label fw-bold"></label>
-                        <textarea asp-for="Opis" class="form-control" rows="3" placeholder="Wprowadź opis produktu" rows="4"></textarea>
+                        <textarea asp-for="Opis" class="form-control tinymce-editor" rows="3" placeholder="Wprowadź opis produktu" rows="4"></textarea>
                         <span asp-validation-for="Opis" class="text-danger"></span>
                     </div>
 
+                    @* <div class="form-group mb-3"> *@
+                    @*     <label asp-for="Cena" class="form-label fw-bold"></label> *@
+                    @*     <input asp-for="Cena" class="form-control" type="number" step="0.01" placeholder="Wprowadź cenę produktu" /> *@
+                    @*     <span asp-validation-for="Cena" class="text-danger"></span> *@
+                    @* </div> *@
+               
                     <div class="form-group mb-3">
                         <label asp-for="Cena" class="form-label fw-bold"></label>
-                        <input asp-for="Cena" class="form-control" type="number" step="0.01" placeholder="Wprowadź cenę produktu" />
+                        <input name="Cena" class="form-control" type="text"
+                               value="@Model.Cena.ToString("N2", System.Globalization.CultureInfo.GetCultureInfo("pl-PL"))"
+                               placeholder="Wprowadź cenę produktu" />
                         <span asp-validation-for="Cena" class="text-danger"></span>
                     </div>
-                    
+
                     <div class="form-group mb-3">
                         <label asp-for="AdresURL" class="form-label fw-bold"></label>
                         <input asp-for="AdresURL" class="form-control" placeholder="Wprowadź adres URL zdjęcia produktu" />
@@ -67,7 +75,6 @@
 </div>
 
 @section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
+    @await Html.PartialAsync("_TinyMCE")
+    @await Html.PartialAsync("_ValidationScriptsPartial")
 }

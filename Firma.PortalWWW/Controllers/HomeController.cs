@@ -41,7 +41,7 @@ namespace Firma.PortalWWW.Controllers
                 .FirstOrDefaultAsync();
 
             ViewBag.ModelGaleria = await _context.ZdjecieGaleria
-                .OrderByDescending(z => z.Pozycja)
+                .OrderBy(z => z.Pozycja)
                 .Take(6)
                 .ToListAsync();
 

@@ -5,6 +5,8 @@ using Firma.Data.Data.Sklep;
 using Firma.Data.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using PublicHoliday;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Firma.PortalWWW.Controllers
 {
@@ -122,6 +124,20 @@ namespace Firma.PortalWWW.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        // Obliczenie daty odbioru: następny dzień roboczy (pomijamy weekend i święta)
+        public DateTime ObliczDateOdbioru(DateTime startDate)
+        {
+            var polandHolidays = new PolandPublicHoliday();
+            var data = startDate.Date.AddDays(1);  // następny dzień po startDate
+
+            while (polandHolidays.IsPublicHoliday(data) || data.DayOfWeek == DayOfWeek.Saturday || data.DayOfWeek == DayOfWeek.Sunday)
+            {
+                data = data.AddDays(1);
+            }
+
+            return data;
+        }
+
         [HttpPost]
         public async Task<IActionResult> ZlozZamowienie()
         {
@@ -137,11 +153,24 @@ namespace Firma.PortalWWW.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            var dataOdbioru = DateTime.Now.AddDays(1);
-            if (dataOdbioru.DayOfWeek == DayOfWeek.Saturday)
-                dataOdbioru = dataOdbioru.AddDays(2);
-            else if (dataOdbioru.DayOfWeek == DayOfWeek.Sunday)
-                dataOdbioru = dataOdbioru.AddDays(1);
+            ////odbiór zamówienia następny dzień roboczy chyba że jest weekend
+            //var swieta = DateSystem.GetPublicHoliday(2025, "PL");
+
+            //bool czyWolne = DateSystem.IsPublicHoliday(DateTime.Today, "PL");
+
+            //foreach (var swieto in swieta)
+            //{
+            //    Console.WriteLine($"{swieto.LocalName}: {swieto.Date:yyyy-MM-dd}");
+            //}
+
+            //var dataOdbioru = DateTime.Now.AddDays(1);
+            //if (dataOdbioru.DayOfWeek == DayOfWeek.Saturday)
+            //    dataOdbioru = dataOdbioru.AddDays(2);
+            //else if (dataOdbioru.DayOfWeek == DayOfWeek.Sunday)
+            //    dataOdbioru = dataOdbioru.AddDays(1);
+
+            //odbiór zamówienia następny dzień roboczy chyba że jest weekend lub święto
+            var dataOdbioru = ObliczDateOdbioru(DateTime.Now);
             var kwota = koszyk.Sum(p => p.Ilosc * p.Produkt.Cena);
 
             var zamowienie = new Zamowienie

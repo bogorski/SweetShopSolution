@@ -5,7 +5,7 @@
 }
 
 <div class="container my-5">
-    <p class="text-center mb-5 h1 section-title">Twój koszyk</p>
+    <p class="text-center mb-5 h1 section-title dark-rusty-color fw-bold">Twój koszyk</p>
 
     @if (!Model.Any())
     {
@@ -44,6 +44,7 @@
                                         <td>@pozycja.Produkt.Nazwa</td>
                                         <td>
                                             <form method="post" asp-action="ZmienIlosc" asp-route-id="@pozycja.IdKoszyka" class="d-inline">
+                                                @Html.AntiForgeryToken()
                                                 <input type="number"
                                                        name="ilosc"
                                                        value="@pozycja.Ilosc"
@@ -56,6 +57,7 @@
                                         <td class="fw-bold">@((pozycja.Ilosc * pozycja.Produkt.Cena).ToString("C"))</td>
                                         <td>
                                             <form method="post" asp-action="Usun" asp-route-id="@pozycja.IdKoszyka" onsubmit="return confirm('Na pewno chcesz usunąć?');" class="d-inline">
+                                                @Html.AntiForgeryToken()
                                                 <button type="submit" class="btn btn-sm">Usuń</button>
                                             </form>
                                         </td>
@@ -75,6 +77,7 @@
 
                 <div class="text-center my-4">
                     <form method="post" asp-action="ZlozZamowienie">
+                        @Html.AntiForgeryToken()
                         <button type="submit" class="btn btn-primary px-4 py-2">
                             Złóż zamówienie
                         </button>
